@@ -1,3 +1,15 @@
+/* Homepage */
+
+.home.page {
+    #content {
+        section {
+            padding: 2em 0;
+        }
+    }
+}
+
+/* Posts / Pages */
+
 .entry-header {
     margin-bottom: 1.5em;
 }
@@ -54,71 +66,6 @@
     margin-bottom: 15px;
 }
 
-/* Post Layouts */
-
-.layout-list,
-.single {
-    .post {
-        margin-bottom: 1.5em;
-    }
-}
-
-.layout-full {
-    .post {
-        margin-bottom: 5em;
-    }
-}
-
-.layout-list {
-    .post {
-        &:before, &:after {
-            @include clearfix;
-        }
-
-        &:after {
-            @include clearfix-after;
-        }
-    }
-}
-
-@media (min-width: 768px) {
-    #post-feed.layout-grid-2-col,
-    #post-feed.layout-grid-3-col {
-        display: flex;
-        flex-flow: row wrap;
-
-        .full-post {
-            width: 100% !important;
-        }
-    }
-
-    .layout-grid-2-col {
-        margin: 0 -15px;
-
-        .post {
-            padding: 0 15px;
-            width: 50%;
-        }
-    }
-
-    .layout-grid-3-col {
-        margin: 0 -15px;
-
-        .post {
-            padding: 0 15px;
-            width: 33.3%;
-        }
-    }
-
-    .layout-list {
-        .post-thumbnail {
-            float: left;
-            margin: 0 15px 15px 0;
-            max-width: 250px;
-        }
-    }
-}
-
 /* Archives */
 .page-title {
     margin-bottom: 1.5em;
@@ -129,12 +76,6 @@
 .page-template-landing {
     #content {
         padding: 2em 0;
-    }
-
-    &.layout-style-full {
-        #content {
-            padding: 4em 0;
-        }
     }
 }
 

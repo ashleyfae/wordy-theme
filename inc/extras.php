@@ -7,7 +7,7 @@
  * @package   wordy
  * @copyright Copyright (c) 2016, Nose Graze Ltd.
  * @license   GPL2+
- * @since 1.0
+ * @since     1.0
  */
 
 /**
@@ -70,7 +70,17 @@ function wordy_custom_css() {
 
 	$css = '';
 
+	// Font family.
+	$font_style = get_theme_mod( 'typography_style', 'serif' );
+	if ( $font_style == 'sans-serif' || $font_style == 'slab-serif' ) {
+		if ( $font_style == 'sans-serif' ) {
+			$family = "'Open Sans', sans-serif";
+		} else {
+			$family = "'Roboto Slab', serif";
+		}
 
+		$css .= 'body { font-family: ' . $family . '; }';
+	}
 
 	// Cache this.
 	set_transient( 'wordy_customizer_css', $css );
@@ -239,6 +249,26 @@ function wordy_clear_customizer_transients( $wp_customize_manager ) {
 add_action( 'customize_save_after', 'wordy_clear_customizer_transients' );
 
 /**
+ * Get Google Fonts URL
+ *
+ * @since 1.0
+ * @return string
+ */
+function wordy_get_google_fonts_url() {
+	$text_style = get_theme_mod( 'typography_style', 'serif' );
+
+	if ( $text_style == 'serif' ) {
+		$url = 'https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i';
+	} elseif ( $text_style == 'slab-serif' ) {
+		$url = 'https://fonts.googleapis.com/css?family=Roboto+Slab:400,700';
+	} else {
+		$url = 'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i';
+	}
+
+	return apply_filters( 'wordy/google-fonts-url', $url, $text_style );
+}
+
+/**
  * Excerpt Length
  *
  * @param int $length
@@ -273,6 +303,20 @@ function wordy_text_before_copyright() {
 }
 
 add_action( 'wordy/before-copyright', 'wordy_text_before_copyright' );
+
+/**
+ * Bypass the `front-page.php` template when the blog posts index is being displayed.
+ *
+ * @param string $template
+ *
+ * @since 1.0
+ * @return string
+ */
+function wordy_filter_front_page_template( $template ) {
+	return is_home() ? '' : $template;
+}
+
+add_filter( 'frontpage_template', 'wordy_filter_front_page_template' );
 
 /**
  * Allow shortcodes in widgets.

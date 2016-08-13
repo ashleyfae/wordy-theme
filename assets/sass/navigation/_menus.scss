@@ -1,8 +1,5 @@
 .main-navigation {
-    border: 4px double $color-tertiary;
-    border-left: none;
-    border-right: none;
-    margin: 0 0 1.5em;
+    margin: 0;
 
     ul {
         display: none;
@@ -13,7 +10,7 @@
 
         a {
             @include font-size(1.2);
-            color: #979797;
+            color: white;
             display: block;
             letter-spacing: .1em;
             padding: 1em;
@@ -21,7 +18,7 @@
             text-transform: uppercase;
 
             &:hover {
-                color: #333;
+                color: white;
             }
         }
     }
@@ -87,15 +84,26 @@
         }
 
         .sub-menu {
-            background: #fff;
-            border: 4px double $color-tertiary;
-            border-top: none;
+            background: $color-primary;
             text-align: left;
 
             a {
-                border-top: 1px solid $color-tertiary;
                 padding: 1em 2em;
+
+                &:hover {
+                    background: $color-primary-light;
+                }
             }
+        }
+    }
+}
+
+@media (min-width: 800px) {
+    .main-navigation {
+        flex: 1;
+
+        ul {
+            text-align: right;
         }
     }
 }

@@ -274,13 +274,8 @@ p {
 }
 
 blockquote {
-  border: 4px double #eee;
-  border-left: none;
-  border-right: none;
-  color: #979797;
   font-style: italic;
   margin: 1.5em 0;
-  padding: 1.5em 0;
 }
 blockquote p:last-child {
   margin-bottom: 0;
@@ -335,7 +330,7 @@ h6 {
 .button,
 button,
 input[type="submit"] {
-  background: #70d8c4;
+  background: #333;
   border: none;
   color: white;
   padding: 10px 20px;
@@ -344,7 +339,7 @@ input[type="submit"] {
 .button:hover,
 button:hover,
 input[type="submit"]:hover {
-  background: #5cd3bc;
+  background: #262626;
   color: white;
 }
 
@@ -394,7 +389,7 @@ textarea:focus {
 5.1 Links
 --------------------------------------------------------------*/
 a {
-  color: #70d8c4;
+  color: #333;
   text-decoration: none;
 }
 a:hover {
@@ -405,10 +400,7 @@ a:hover {
 5.2 Menus
 --------------------------------------------------------------*/
 .main-navigation {
-  border: 4px double #eee;
-  border-left: none;
-  border-right: none;
-  margin: 0 0 1.5em;
+  margin: 0;
 }
 .main-navigation ul {
   display: none;
@@ -420,7 +412,7 @@ a:hover {
 .main-navigation ul a {
   font-size: 19.2px;
   font-size: 1.2rem;
-  color: #979797;
+  color: white;
   display: block;
   letter-spacing: .1em;
   padding: 1em;
@@ -428,7 +420,7 @@ a:hover {
   text-transform: uppercase;
 }
 .main-navigation ul a:hover {
-  color: #333;
+  color: white;
 }
 .main-navigation.toggled ul {
   display: block;
@@ -477,21 +469,28 @@ a:hover {
     top: 100%;
   }
   .main-navigation .sub-menu {
-    background: #fff;
-    border: 4px double #eee;
-    border-top: none;
+    background: #333;
     text-align: left;
   }
   .main-navigation .sub-menu a {
-    border-top: 1px solid #eee;
     padding: 1em 2em;
+  }
+  .main-navigation .sub-menu a:hover {
+    background: #4d4d4d;
+  }
+}
+@media (min-width: 800px) {
+  .main-navigation {
+    flex: 1;
+  }
+  .main-navigation ul {
+    text-align: right;
   }
 }
 /*--------------------------------------------------------------
 5.3 Pagination
 --------------------------------------------------------------*/
 .pagination {
-  border-top: 4px double #eee;
   padding-top: 1.5em;
 }
 .layout-style-boxed .pagination {
@@ -506,7 +505,14 @@ a:hover {
 }
 .pagination span, .pagination a {
   display: inline-block;
-  padding: 10px;
+  padding: 5px 10px;
+}
+.pagination .current {
+  background: #333;
+  color: white;
+  margin-right: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 /*--------------------------------------------------------------
@@ -614,24 +620,42 @@ body {
   background: white;
 }
 
-/* Announcement Bar */
-#announcement {
-  background: #70d8c4;
+/* Branding */
+#header {
+  background: #333;
   color: white;
-  padding: 15px;
-  text-align: center;
-}
-#announcement a {
-  color: white;
-  text-decoration: underline;
-}
-#announcement a:hover {
-  text-decoration: none;
-}
-#announcement p:last-child {
-  margin-bottom: 0;
+  margin: 0 0 1.5em;
+  padding: 1em 0;
 }
 
+.site-title {
+  font-size: 48px;
+  font-size: 3rem;
+  margin: 0;
+}
+.site-title a {
+  color: white;
+}
+
+.site-description {
+  font-size: 24px;
+  font-size: 1.5rem;
+  font-family: Lora, Georgia, sans-serif;
+  font-style: italic;
+  margin: 0;
+}
+
+@media (min-width: 800px) {
+  #header > .container {
+    display: flex;
+    align-items: center;
+  }
+
+  .site-branding {
+    max-width: 40%;
+    padding-right: 20px;
+  }
+}
 /* Social Media */
 .social-media-links {
   font-size: 38.4px;
@@ -655,32 +679,15 @@ body {
   }
 }
 
-/* Branding */
-#header {
-  margin: 30px 0;
-}
-
-.site-title {
-  font-size: 48px;
-  font-size: 3rem;
-  margin: 0;
-  text-align: center;
-  text-transform: lowercase;
-}
-
-.site-description {
-  font-size: 24px;
-  font-size: 1.5rem;
-  font-family: Lora, Georgia, sans-serif;
-  font-style: italic;
-  margin: 0;
-  text-align: center;
-  text-transform: lowercase;
-}
-
 /*--------------------------------------------------------------
 7.2 Posts & Pages
 --------------------------------------------------------------*/
+/* Homepage */
+.home.page #content section {
+  padding: 2em 0;
+}
+
+/* Posts / Pages */
 .entry-header {
   margin-bottom: 1.5em;
 }
@@ -735,57 +742,6 @@ body {
   margin-bottom: 15px;
 }
 
-/* Post Layouts */
-.layout-list .post,
-.single .post {
-  margin-bottom: 1.5em;
-}
-
-.layout-full .post {
-  margin-bottom: 5em;
-}
-
-.layout-list .post:before, .layout-list .post:after {
-  content: "";
-  display: table;
-}
-.layout-list .post:after {
-  clear: both;
-}
-
-@media (min-width: 768px) {
-  #post-feed.layout-grid-2-col,
-  #post-feed.layout-grid-3-col {
-    display: flex;
-    flex-flow: row wrap;
-  }
-  #post-feed.layout-grid-2-col .full-post,
-  #post-feed.layout-grid-3-col .full-post {
-    width: 100% !important;
-  }
-
-  .layout-grid-2-col {
-    margin: 0 -15px;
-  }
-  .layout-grid-2-col .post {
-    padding: 0 15px;
-    width: 50%;
-  }
-
-  .layout-grid-3-col {
-    margin: 0 -15px;
-  }
-  .layout-grid-3-col .post {
-    padding: 0 15px;
-    width: 33.3%;
-  }
-
-  .layout-list .post-thumbnail {
-    float: left;
-    margin: 0 15px 15px 0;
-    max-width: 250px;
-  }
-}
 /* Archives */
 .page-title {
   margin-bottom: 1.5em;
@@ -795,9 +751,6 @@ body {
 /* Landing Page Template */
 .page-template-landing #content {
   padding: 2em 0;
-}
-.page-template-landing.layout-style-full #content {
-  padding: 4em 0;
 }
 
 /* 404 Error */
@@ -893,9 +846,7 @@ body {
 7.4 Sidebar
 --------------------------------------------------------------*/
 .widget {
-  border: 4px double #eee;
   margin: 0 0 1.5em;
-  padding: 15px;
 }
 
 .widget-area .button:not(.screen-reader-text),
@@ -909,7 +860,6 @@ body {
 .widget-title {
   font-size: 32px;
   font-size: 2rem;
-  color: #323232;
   display: block;
   font-weight: 400;
   margin: 0 0 15px;
@@ -923,7 +873,7 @@ body {
 }
 
 .widget.highlight {
-  background: #70d8c4;
+  background: #333;
   color: white;
   padding: 15px;
 }
@@ -931,7 +881,7 @@ body {
   color: white;
 }
 .widget.highlight .widget-title span {
-  background: #70d8c4 !important;
+  background: #333 !important;
 }
 .widget.highlight .widget-title:before {
   background: white !important;
@@ -940,12 +890,12 @@ body {
 .widget.highlight button,
 .widget.highlight input[type="submit"] {
   background: white;
-  color: #70d8c4;
+  color: #333;
 }
 .widget.highlight .button:hover,
 .widget.highlight button:hover,
 .widget.highlight input[type="submit"]:hover {
-  background: #70d8c4;
+  background: #333;
   color: white;
 }
 
@@ -978,18 +928,15 @@ body {
 /*--------------------------------------------------------------
 7.5 Footer
 --------------------------------------------------------------*/
-#content {
-  border-bottom: 4px double #eee;
-  padding-bottom: 1.5em;
-}
-
 #footer-widgets {
+  color: white;
   margin: 0 -15px;
 }
 #footer-widgets .widget {
   margin: 1.5em 0;
 }
 #footer-widgets .widget-title {
+  color: white;
   margin: 0 0 15px;
   text-align: center;
 }
@@ -1019,9 +966,19 @@ body {
 #footer {
   font-size: 20.8px;
   font-size: 1.3rem;
-  border-top: 4px double #eee;
-  color: #999999;
+  background: #333;
+  color: #afafaf;
+  margin-top: 1.5em;
   padding: 1.5em 0;
+}
+#footer a {
+  color: white;
+}
+#footer a:hover {
+  text-decoration: underline;
+}
+
+.site-info {
   text-align: center;
 }
 
@@ -1136,7 +1093,7 @@ img {
 .expanding-archives-title {
   font-size: 22.4px;
   font-size: 1.4rem;
-  background: #70d8c4;
+  background: #333;
   font-weight: normal;
   margin: 0;
 }
@@ -1152,7 +1109,7 @@ img {
 
 /* The wrapper around the list of posts */
 .expanding-archives-collapse-section {
-  border: 1px solid #70d8c4;
+  border: 1px solid #333;
   display: none;
   padding: 10px;
 }
@@ -1211,8 +1168,8 @@ img {
 .naked-social-share ul a {
   font-size: 17.6px;
   font-size: 1.1rem;
-  border: 1px solid #70d8c4;
-  color: #70d8c4;
+  border: 1px solid #333;
+  color: #333;
   display: block;
   overflow: hidden;
   padding: 3px 30px 3px 8px;
@@ -1223,14 +1180,14 @@ img {
   z-index: 10;
 }
 .naked-social-share ul a:hover {
-  background: #70d8c4;
+  background: #333;
   color: white;
 }
 .naked-social-share ul .fa {
   margin-right: 3px;
 }
 .naked-social-share ul .nss-site-count {
-  background: #70d8c4;
+  background: #333;
   color: white;
   font-weight: 600;
   line-height: 23px;
@@ -1270,96 +1227,40 @@ img {
 /*--------------------------------------------------------------
 9.3 Novelist
 --------------------------------------------------------------*/
-/* Book Archive */
-.novelist-book-archive .book {
-  clear: both;
-  margin-bottom: 1.5em;
-  overflow: hidden;
+/* Featured Book */
+#featured-book-cover {
+  text-align: center;
 }
-.novelist-book-archive .book .book-synopsis {
-  border: none;
-  padding: 0;
-}
-.novelist-book-archive .book .entry-footer .button {
-  color: white;
+#featured-book-cover .novelist-3d-book-wrap {
+  margin-right: 0;
+  margin-top: 0;
 }
 
 @media (min-width: 768px) {
-  .book-cover-wrap {
-    float: left;
-    width: 200px;
-  }
-  .book-cover-wrap .book-wrap-item {
-    margin-bottom: .5em;
+  #featured-book {
+    display: flex;
   }
 
-  .book-content-wrap {
-    margin-left: 250px;
+  #featured-book-cover {
+    flex: 0 0 300px;
+  }
+
+  #featured-book-synopsis {
+    flex: 1;
+    margin: 0;
+    padding: 0 2em;
+  }
+
+  #featured-book-links {
+    flex: 0 0 200px;
   }
 }
-/* Single Book */
-.single-book .entry-title {
-  text-align: center;
-}
-.single-book .pull-left {
-  float: left;
-  font-style: italic;
-  text-transform: lowercase;
-  width: 30%;
-}
-.single-book .pull-right {
-  float: right;
-  text-align: right;
-  width: 68%;
-}
-
-#also-in-this-series {
-  margin-top: 1.5em;
-  text-align: center;
-}
-#also-in-this-series h2 {
-  font-size: 24px;
-  font-size: 1.5rem;
-  font-style: italic;
-  text-transform: lowercase;
-}
-#also-in-this-series .novelist-series-books-grid {
-  justify-content: center;
-}
-#also-in-this-series .novelist-series-books-grid .novelist-series-book {
-  width: 50%;
-}
-
-/* Purchase Links Dropdown */
-.purchase-links-list-dropdown {
-  position: relative;
-}
-
-.purchase-links-list {
-  background: #70d8c4;
-  display: none;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 200px;
-}
-.purchase-links-list.purchase-links-list-open {
-  display: block;
-}
-.purchase-links-list ul {
+/* Purchase Links */
+.wordy-novelist-purchase-links {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.purchase-links-list a {
-  color: white;
-  display: block;
-  padding: .5em 1em;
-  text-decoration: none;
-}
-.purchase-links-list a:hover {
-  background: #5cd3bc;
+.wordy-novelist-purchase-links li {
+  margin: 0 0 5px;
 }

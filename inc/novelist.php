@@ -9,3 +9,148 @@
  * @license   GPL2+
  * @since     1.0
  */
+
+if ( ! class_exists( 'Novelist' ) ) {
+	return;
+}
+
+/**
+ * Customizer: Static Front Page
+ *
+ * @param WP_Customize_Manager $wp_customize
+ *
+ * @since 1.0
+ * @return void
+ */
+function wordy_novelist_customizer_static_front_page( $wp_customize ) {
+
+	/* Featured Book */
+	$wp_customize->add_setting( 'homepage_featured_book', array(
+		'default'           => novelist_get_latest_book_id(),
+		'sanitize_callback' => 'absint'
+	) );
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'homepage_featured_book', array(
+		'label'       => esc_html__( 'Featured Book', 'catherine' ),
+		'description' => esc_html__( 'Choose a book to feature on your homepage.', 'catherine' ),
+		'type'        => 'radio',
+		'choices'     => novelist_get_books(),
+		'section'     => 'static_front_page',
+		'settings'    => 'homepage_featured_book',
+		'priority'    => 50
+	) ) );
+
+}
+
+add_action( 'wordy/customizer/register-sections', 'wordy_novelist_customizer_static_front_page' );
+
+/**
+ * Display Featured Book
+ *
+ * @since 1.0
+ * @return void
+ */
+function wordy_featured_book() {
+	$featured_book_id = get_theme_mod( 'homepage_featured_book', novelist_get_latest_book_id() );
+
+	if ( ! $featured_book_id || ! is_numeric( $featured_book_id ) ) {
+		return;
+	}
+
+	$book           = new Novelist_Book( $featured_book_id );
+	$cover          = $book->get_cover_image( 'large' );
+	$synopsis       = $book->get_synopsis();
+	$purchase_links = $book->get_purchase_links();
+	?>
+	<section id="featured-book">
+		<?php if ( $cover ) : ?>
+			<div id="featured-book-cover">
+				<?php echo $cover; ?>
+				<a href="<?php echo esc_url( get_permalink( $featured_book_id ) ); ?>" class="button button-block"><?php _e( 'More Details &raquo;', 'wordy' ); ?></a>
+			</div>
+		<?php endif; ?>
+
+		<?php if ( $synopsis ) : ?>
+			<blockquote id="featured-book-synopsis">
+				<?php echo wpautop( $synopsis ); ?>
+			</blockquote>
+		<?php endif; ?>
+
+		<?php if ( $purchase_links ) : ?>
+			<div id="featured-book-links">
+				<?php wordy_novelist_purchase_links( $book ); ?>
+			</div>
+		<?php endif; ?>
+	</section>
+	<?php
+}
+
+/**
+ * Display Purchase Links
+ *
+ * @param Novelist_Book|int $book              Novelist book object or post ID.
+ * @param bool              $include_goodreads Whether or not to include Goodreads.
+ *
+ * @since 1.0
+ * @return void
+ */
+function wordy_novelist_purchase_links( $book, $include_goodreads = true ) {
+	if ( is_numeric( $book ) ) {
+		$book = new Novelist_Book( $book );
+	}
+
+	$purchase_links = $book->get_purchase_links();
+
+	if ( ! is_array( $purchase_links ) ) {
+		return;
+	}
+
+	$saved_links = novelist_get_option( 'purchase_links', false );
+	$goodreads   = $book->get_goodreads_link();
+
+	?>
+	<ul class="wordy-novelist-purchase-links">
+		<?php if ( $include_goodreads && $goodreads ) : ?>
+			<li class="wordy-novelist-goodreads">
+				<a href="<?php echo esc_url( $goodreads ); ?>" target="_blank" class="button button-block"><?php _e( 'Goodreads', 'wordy' ); ?></a>
+			</li>
+		<?php endif; ?>
+
+		<?php foreach ( $saved_links as $link_info ) :
+			$sanitized_key = esc_attr( sanitize_title( $link_info['name'] ) );
+			$url = array_key_exists( $sanitized_key, $purchase_links ) ? $purchase_links[ $sanitized_key ] : '';
+
+			if ( empty( $url ) ) {
+				continue;
+			}
+			?>
+			<li>
+				<a href="<?php echo esc_url( $url ); ?>" target="_blank" class="button button-block"><?php echo $link_info['name']; ?></a>
+			</li>
+		<?php endforeach; ?>
+	</ul>
+	<?php
+}
+
+/**
+ * Modify the size of 3D book covers on the homepage for the featured book.
+ * We need to ensure the width doesn't exceed 300px.
+ *
+ * @param string $size    Chosen size.
+ * @param int    $book_id ID of the book being displayed.
+ *
+ * @since 1.0
+ * @return array
+ */
+function wordy_novelist_3d_cover_size( $size, $book_id ) {
+	if ( ! is_front_page() ) {
+		return $size;
+	}
+
+	if ( 'posts' == get_option( 'show_on_front' ) ) {
+		return $size;
+	}
+
+	return array( 300, 450 );
+}
+
+add_filter( 'novelist-3d-book-covers/render/image-size', 'wordy_novelist_3d_cover_size', 10, 2 );

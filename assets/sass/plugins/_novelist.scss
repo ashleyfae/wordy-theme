@@ -1,126 +1,42 @@
-/* Book Archive */
+/* Featured Book */
 
-.novelist-book-archive {
-    .book {
-        clear: both;
-        margin-bottom: 1.5em;
-        overflow: hidden;
+#featured-book-cover {
+    text-align: center;
 
-        .book-synopsis {
-            border: none;
-            padding: 0;
-        }
-
-        .entry-footer {
-            .button {
-                color: white;
-            }
-        }
+    .novelist-3d-book-wrap {
+        margin-right: 0;
+        margin-top: 0;
     }
 }
 
 @media (min-width: 768px) {
-    .book-cover-wrap {
-        float: left;
-        width: 200px;
-
-        .single-book & {
-            //width: 300px;
-        }
-
-        .book-wrap-item {
-            margin-bottom: .5em;
-        }
+    #featured-book {
+        display: flex;
     }
 
-    .book-content-wrap {
-        margin-left: 250px;
+    #featured-book-cover {
+        flex: 0 0 300px;
+    }
 
-        .single-book & {
-            //margin-left: 350px;
-        }
+    #featured-book-synopsis {
+        flex: 1;
+        margin: 0;
+        padding: 0 2em;
+    }
+
+    #featured-book-links {
+        flex: 0 0 200px;
     }
 }
 
-/* Single Book */
+/* Purchase Links */
 
-.single-book {
-    .entry-title {
-        text-align: center;
-    }
-
-    .pull-left {
-        float: left;
-        font: {
-            style: italic;
-        }
-        text-transform: lowercase;
-        width: 30%;
-    }
-
-    .pull-right {
-        float: right;
-        text-align: right;
-        width: 68%;
-    }
-}
-
-#also-in-this-series {
-    margin-top: 1.5em;
-    text-align: center;
-
-    h2 {
-        @include font-size(1.5);
-        font: {
-            style: italic;
-        }
-        text-transform: lowercase;
-    }
-
-    .novelist-series-books-grid {
-        justify-content: center;
-
-        .novelist-series-book {
-            width: 50%;
-        }
-    }
-}
-
-/* Purchase Links Dropdown */
-
-.purchase-links-list-dropdown {
-    position: relative;
-}
-
-.purchase-links-list {
-    background: $color-primary;
-    display: none;
+.wordy-novelist-purchase-links {
     list-style: none;
     margin: 0;
     padding: 0;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 200px;
 
-    &.purchase-links-list-open {
-        display: block;
-    }
-
-    ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    a {
-        color: white;
-        display: block;
-        padding: .5em 1em;
-        text-decoration: none;
-
-        &:hover {
-            background: $color-primary-dark;
-        }
+    li {
+        margin: 0 0 5px;
     }
 }

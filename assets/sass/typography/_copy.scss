@@ -13,15 +13,10 @@ p {
 }
 
 blockquote {
-    border: 4px double $color-tertiary;
-    border-left: none;
-    border-right: none;
-    color: #979797;
     font: {
         style: italic;
     }
     margin: 1.5em 0;
-    padding: 1.5em 0;
 
     p {
         &:last-child {

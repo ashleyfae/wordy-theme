@@ -136,19 +136,21 @@ add_action( 'widgets_init', 'wordy_widgets_init' );
  * Enqueue scripts and styles.
  *
  * @uses  wp_get_theme()
+ * @uses  wordy_get_google_fonts_url()
+ * @uses  wordy_custom_css()
  *
  * @since 1.0
  * @return void
  */
 function wordy_assets() {
-	$wordy = wp_get_theme();
-	$version   = $wordy->get( 'Version' );
+	$wordy   = wp_get_theme();
+	$version = $wordy->get( 'Version' );
 
 	// Remove Expanding Archives CSS
 	wp_deregister_style( 'expanding-archives' );
 
 	// Google Fonts
-	wp_enqueue_style( 'wordy-google-fonts', '' ); // @todo
+	wp_enqueue_style( 'wordy-google-fonts', wordy_get_google_fonts_url() );
 
 	// Add styles
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', array(), '4.6.1' );
@@ -203,3 +205,9 @@ require get_template_directory() . '/inc/custom-header.php';
  * Novelist integration.
  */
 require get_template_directory() . '/inc/novelist.php';
+
+/**
+ * Customizer.
+ */
+require get_template_directory() . '/inc/customizer/class-wordy-customizer.php';
+new Wordy_Customizer();

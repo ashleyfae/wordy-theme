@@ -1,5 +1,4 @@
 .pagination {
-    border-top: 4px double $color_tertiary;
     padding-top: 1.5em;
 
     .layout-style-boxed & {
@@ -14,10 +13,14 @@
 
     span, a {
         display: inline-block;
-        padding: 10px;
+        padding: 5px 10px;
     }
 
     .current {
-
+        background: $color-primary;
+        color: white;
+        margin-right: 5px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
