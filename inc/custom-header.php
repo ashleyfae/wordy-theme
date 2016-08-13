@@ -2,31 +2,32 @@
 /**
  * Implements the custom header feature.
  *
- * @package   catherine
+ * @package   wordy
  * @copyright Copyright (c) 2016, Nose Graze Ltd.
  * @license   GPL2+
+ * @since     1.0
  */
 
 /**
  * Custom Header Setup
  *
- * @uses  catherine_header_style();
+ * @uses  wordy_header_style();
  *
  * @since 1.0
  * @return void
  */
-function catherine_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'catherine/custom-header-args', array(
+function wordy_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( 'wordy/custom-header-args', array(
 		'default-image'      => '',
-		'default-text-color' => '000000',
+		'default-text-color' => 'ffffff',
 		'width'              => 1000,
 		'height'             => 250,
 		'flex-height'        => true,
-		'wp-head-callback'   => 'catherine_header_style',
+		'wp-head-callback'   => 'wordy_header_style',
 	) ) );
 }
 
-add_action( 'after_setup_theme', 'catherine_custom_header_setup' );
+add_action( 'after_setup_theme', 'wordy_custom_header_setup' );
 
 /**
  * Styles the header image and text displayed on the blog.
@@ -34,7 +35,7 @@ add_action( 'after_setup_theme', 'catherine_custom_header_setup' );
  * @since 1.0
  * @return void
  */
-function catherine_header_style() {
+function wordy_header_style() {
 	$header_text_color = get_header_textcolor();
 
 	/*
