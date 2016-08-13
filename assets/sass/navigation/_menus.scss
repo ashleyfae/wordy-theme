@@ -1,0 +1,101 @@
+.main-navigation {
+    border: 4px double $color-tertiary;
+    border-left: none;
+    border-right: none;
+    margin: 0 0 1.5em;
+
+    ul {
+        display: none;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+
+        a {
+            @include font-size(1.2);
+            color: #979797;
+            display: block;
+            letter-spacing: .1em;
+            padding: 1em;
+            text-decoration: none;
+            text-transform: uppercase;
+
+            &:hover {
+                color: #333;
+            }
+        }
+    }
+
+    &.toggled ul {
+        display: block;
+    }
+}
+
+.menu-toggle {
+    display: block;
+    margin: 1.5em auto;
+}
+
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    .main-navigation {
+        padding: 0;
+
+        ul {
+            display: block;
+
+            ul {
+                float: left;
+                position: absolute;
+                top: 1.5em;
+                left: -999em;
+                z-index: 99999;
+
+                ul {
+                    left: -999em;
+                    top: 0;
+                }
+
+                li {
+                    &:hover > ul,
+                    &.focus > ul {
+                        left: 100%;
+                        top: 0;
+                    }
+                }
+
+                a {
+                    width: 200px;
+                }
+            }
+
+            li {
+                display: inline-block;
+                position: relative;
+
+                &:hover,
+                &:focus {
+                    > ul {
+                        left: auto;
+                        top: 100%;
+                    }
+                }
+            }
+        }
+
+        .sub-menu {
+            background: #fff;
+            border: 4px double $color-tertiary;
+            border-top: none;
+            text-align: left;
+
+            a {
+                border-top: 1px solid $color-tertiary;
+                padding: 1em 2em;
+            }
+        }
+    }
+}

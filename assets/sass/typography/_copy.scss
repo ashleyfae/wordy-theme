@@ -1,0 +1,35 @@
+body {
+    @include font-size(1.5);
+    color: #333333;
+    font: {
+        family: Lora, Georgia, serif;
+        weight: 400;
+    }
+    line-height: 1.8;
+}
+
+p {
+    margin: 0 0 1.5em;
+}
+
+blockquote {
+    border: 4px double $color-tertiary;
+    border-left: none;
+    border-right: none;
+    color: #979797;
+    font: {
+        style: italic;
+    }
+    margin: 1.5em 0;
+    padding: 1.5em 0;
+
+    p {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+code {
+    background: #f4f4f4;
+}

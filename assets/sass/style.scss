@@ -1,0 +1,105 @@
+/*!
+ * Theme Name: Wordy
+ * Theme URI: https://novelistplugin.com/download/wordy-theme/
+ * Description: For wordsmiths.
+ * Version: 1.0
+ * Author: Nose Graze
+ * Author URI: https://www.nosegraze.com
+ * License: GPL2
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: wordy
+ *
+ * @package wordy
+ * @copyright Copyright (c) 2016, Nose Graze Ltd.
+ * @license GPL2+
+ */
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1 Reset
+2 Layout
+    2.1 Grid
+    2.2 Container
+3 Typography
+    3.1 Copy
+    3.2 Headings
+4 Elements
+    4.1 Buttons
+    4.2 Forms
+    4.3 Lists
+    4.4 Tables
+5 Navigation
+	5.1 Links
+	5.2 Menus
+	5.3 Pagination
+6 Modules
+    6.1 Accessibility
+    6.2 Alignments
+    6.3 Clearings
+    6.4 Responsive Utilities
+7 Content
+    7.1 Header
+    7.2 Posts & Pages
+    7.3 Comments
+    7.4 Sidebar
+    7.5 Footer
+8 Media
+    8.1 Audio
+    8.2 Images
+	8.3 Captions
+	8.4 Galleries
+9 Plugins
+    9.1 Expanding Archives
+    9.2 Naked Social Share
+    9.3 NG About the Author
+    9.4 Novelist
+--------------------------------------------------------------*/
+
+@import "variables/variables";
+@import "mixins/mixins";
+
+/*--------------------------------------------------------------
+1 Reset
+--------------------------------------------------------------*/
+@import "reset";
+
+/*--------------------------------------------------------------
+2 Layout
+--------------------------------------------------------------*/
+@import "layout/layout";
+
+/*--------------------------------------------------------------
+3 Typography
+--------------------------------------------------------------*/
+@import "typography/typography";
+
+/*--------------------------------------------------------------
+4 Elements
+--------------------------------------------------------------*/
+@import "elements/elements";
+
+/*--------------------------------------------------------------
+5 Navigation
+--------------------------------------------------------------*/
+@import "navigation/navigation";
+
+/*--------------------------------------------------------------
+6 Modules
+--------------------------------------------------------------*/
+@import "modules/modules";
+
+/*--------------------------------------------------------------
+7 Content
+--------------------------------------------------------------*/
+@import "content/content";
+
+/*--------------------------------------------------------------
+8 Media
+--------------------------------------------------------------*/
+@import "media/media";
+
+/*--------------------------------------------------------------
+9 Plugins
+--------------------------------------------------------------*/
+@import "plugins/plugins";

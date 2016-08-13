@@ -1,0 +1,1365 @@
+/*!
+ * Theme Name: Wordy
+ * Theme URI: https://novelistplugin.com/download/wordy-theme/
+ * Description: For wordsmiths.
+ * Version: 1.0
+ * Author: Nose Graze
+ * Author URI: https://www.nosegraze.com
+ * License: GPL2
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: wordy
+ *
+ * @package wordy
+ * @copyright Copyright (c) 2016, Nose Graze Ltd.
+ * @license GPL2+
+ */
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1 Reset
+2 Layout
+    2.1 Grid
+    2.2 Container
+3 Typography
+    3.1 Copy
+    3.2 Headings
+4 Elements
+    4.1 Buttons
+    4.2 Forms
+    4.3 Lists
+    4.4 Tables
+5 Navigation
+	5.1 Links
+	5.2 Menus
+	5.3 Pagination
+6 Modules
+    6.1 Accessibility
+    6.2 Alignments
+    6.3 Clearings
+    6.4 Responsive Utilities
+7 Content
+    7.1 Header
+    7.2 Posts & Pages
+    7.3 Comments
+    7.4 Sidebar
+    7.5 Footer
+8 Media
+    8.1 Audio
+    8.2 Images
+	8.3 Captions
+	8.4 Galleries
+9 Plugins
+    9.1 Expanding Archives
+    9.2 Naked Social Share
+    9.3 NG About the Author
+    9.4 Novelist
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+1 Reset
+--------------------------------------------------------------*/
+html {
+  font-size: 62.5%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  background: white;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  background-color: transparent;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+img {
+  border: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+pre {
+  overflow: auto;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+button {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+/*--------------------------------------------------------------
+2 Layout
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+2.1 Grid
+--------------------------------------------------------------*/
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  /* Just one sidebar */
+  .left-sidebar-is-on #sidebar-left {
+    width: 30.43478%;
+    float: left;
+    margin-right: 4.34783%;
+  }
+  .left-sidebar-is-on #main {
+    width: 65.21739%;
+    float: right;
+    margin-right: 0;
+  }
+
+  .right-sidebar-is-on #main {
+    width: 65.21739%;
+    float: left;
+    margin-right: 4.34783%;
+  }
+  .right-sidebar-is-on #sidebar-right {
+    width: 30.43478%;
+    float: right;
+    margin-right: 0;
+  }
+
+  /* Both sidebars */
+  .left-sidebar-is-on.right-sidebar-is-on #sidebar-left {
+    width: 21.73913%;
+    float: left;
+    margin-right: 4.34783%;
+  }
+  .left-sidebar-is-on.right-sidebar-is-on #sidebar-right {
+    width: 21.73913%;
+    float: right;
+    margin-right: 0;
+  }
+  .left-sidebar-is-on.right-sidebar-is-on #main {
+    width: 47.82609%;
+    float: left;
+    margin-right: 4.34783%;
+  }
+
+  .sidebar-is-off #secondary {
+    display: none;
+  }
+
+  .woocommerce #primary,
+  .page-template-template-no-sidebar #primary {
+    float: none;
+    margin: 0;
+    width: 100%;
+  }
+}
+/*--------------------------------------------------------------
+2.2 Container
+--------------------------------------------------------------*/
+body {
+  background: #f4f4f4;
+}
+
+.container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 15px;
+}
+.container:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+/*--------------------------------------------------------------
+3 Typography
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+3.1 Copy
+--------------------------------------------------------------*/
+body {
+  font-size: 24px;
+  font-size: 1.5rem;
+  color: #333333;
+  font-family: Lora, Georgia, serif;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+p {
+  margin: 0 0 1.5em;
+}
+
+blockquote {
+  border: 4px double #eee;
+  border-left: none;
+  border-right: none;
+  color: #979797;
+  font-style: italic;
+  margin: 1.5em 0;
+  padding: 1.5em 0;
+}
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+code {
+  background: #f4f4f4;
+}
+
+/*--------------------------------------------------------------
+3.2 Headings
+--------------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6 {
+  font-size: 44.8px;
+  font-size: 2.8rem;
+  color: #333333;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+h2 {
+  font-size: 38.4px;
+  font-size: 2.4rem;
+}
+
+h3 {
+  font-size: 35.2px;
+  font-size: 2.2rem;
+}
+
+h4 {
+  font-size: 32px;
+  font-size: 2rem;
+}
+
+h5 {
+  font-size: 28.8px;
+  font-size: 1.8rem;
+}
+
+h6 {
+  font-size: 25.6px;
+  font-size: 1.6rem;
+}
+
+/*--------------------------------------------------------------
+4 Elements
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+4.1 Buttons
+--------------------------------------------------------------*/
+.button,
+button,
+input[type="submit"] {
+  background: #70d8c4;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+.button:hover,
+button:hover,
+input[type="submit"]:hover {
+  background: #5cd3bc;
+  color: white;
+}
+
+.button-block {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+/*--------------------------------------------------------------
+4.2 Forms
+--------------------------------------------------------------*/
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="url"],
+input[type="text"],
+select,
+textarea {
+  background: #f7f7f7;
+  border: none;
+  display: block;
+  font-style: italic;
+  padding: 1em;
+  width: 100%;
+}
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="url"]:focus,
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+  outline: 0;
+}
+
+/*--------------------------------------------------------------
+4.3 Lists
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+4.4 Tables
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+5 Navigation
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+5.1 Links
+--------------------------------------------------------------*/
+a {
+  color: #70d8c4;
+  text-decoration: none;
+}
+a:hover {
+  color: #ffc0ba;
+}
+
+/*--------------------------------------------------------------
+5.2 Menus
+--------------------------------------------------------------*/
+.main-navigation {
+  border: 4px double #eee;
+  border-left: none;
+  border-right: none;
+  margin: 0 0 1.5em;
+}
+.main-navigation ul {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.main-navigation ul a {
+  font-size: 19.2px;
+  font-size: 1.2rem;
+  color: #979797;
+  display: block;
+  letter-spacing: .1em;
+  padding: 1em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.main-navigation ul a:hover {
+  color: #333;
+}
+.main-navigation.toggled ul {
+  display: block;
+}
+
+.menu-toggle {
+  display: block;
+  margin: 1.5em auto;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .main-navigation {
+    padding: 0;
+  }
+  .main-navigation ul {
+    display: block;
+  }
+  .main-navigation ul ul {
+    float: left;
+    position: absolute;
+    top: 1.5em;
+    left: -999em;
+    z-index: 99999;
+  }
+  .main-navigation ul ul ul {
+    left: -999em;
+    top: 0;
+  }
+  .main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
+    left: 100%;
+    top: 0;
+  }
+  .main-navigation ul ul a {
+    width: 200px;
+  }
+  .main-navigation ul li {
+    display: inline-block;
+    position: relative;
+  }
+  .main-navigation ul li:hover > ul, .main-navigation ul li:focus > ul {
+    left: auto;
+    top: 100%;
+  }
+  .main-navigation .sub-menu {
+    background: #fff;
+    border: 4px double #eee;
+    border-top: none;
+    text-align: left;
+  }
+  .main-navigation .sub-menu a {
+    border-top: 1px solid #eee;
+    padding: 1em 2em;
+  }
+}
+/*--------------------------------------------------------------
+5.3 Pagination
+--------------------------------------------------------------*/
+.pagination {
+  border-top: 4px double #eee;
+  padding-top: 1.5em;
+}
+.layout-style-boxed .pagination {
+  margin: 0 -15px;
+  padding: 1.5em 15px 0;
+}
+@media (min-width: 768px) {
+  .layout-style-boxed .pagination {
+    margin: 0 -30px;
+    padding: 1.5em 30px 0;
+  }
+}
+.pagination span, .pagination a {
+  display: inline-block;
+  padding: 10px;
+}
+
+/*--------------------------------------------------------------
+6 Modules
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+6.1 Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar. */
+}
+
+/*--------------------------------------------------------------
+6.2 Alignments
+--------------------------------------------------------------*/
+.alignleft {
+  display: inline;
+  float: left;
+  margin-right: 1.5em;
+  position: relative;
+  z-index: 20;
+}
+
+.alignright {
+  display: inline;
+  float: right;
+  margin-left: 1.5em;
+  position: relative;
+  z-index: 20;
+}
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5em;
+}
+
+/*--------------------------------------------------------------
+6.3 Clearings
+--------------------------------------------------------------*/
+.container:before,
+.container:after,
+#content:before,
+#content:after,
+.comment-author:before,
+.comment-author:after,
+.book-wrap-item:before,
+.book-wrap-item:after {
+  content: "";
+  display: table;
+}
+
+.container:after,
+#content:after,
+.book-wrap-item:after {
+  clear: both;
+}
+
+/*--------------------------------------------------------------
+6.4 Responsive Utilities
+--------------------------------------------------------------*/
+.hide-on-mobile {
+  display: none;
+}
+@media (min-width: 768px) {
+  .hide-on-mobile {
+    display: block;
+  }
+}
+
+/*--------------------------------------------------------------
+7 Content
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+7.1 Header
+--------------------------------------------------------------*/
+body {
+  background: white;
+}
+
+/* Announcement Bar */
+#announcement {
+  background: #70d8c4;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+#announcement a {
+  color: white;
+  text-decoration: underline;
+}
+#announcement a:hover {
+  text-decoration: none;
+}
+#announcement p:last-child {
+  margin-bottom: 0;
+}
+
+/* Social Media */
+.social-media-links {
+  font-size: 38.4px;
+  font-size: 2.4rem;
+}
+.social-media-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.social-media-links ul li {
+  display: inline-block;
+}
+.social-media-links ul li {
+  margin-right: 5px;
+}
+@media (min-width: 768px) {
+  .social-media-links {
+    font-size: 25.6px;
+    font-size: 1.6rem;
+  }
+}
+
+/* Branding */
+#header {
+  margin: 30px 0;
+}
+
+.site-title {
+  font-size: 48px;
+  font-size: 3rem;
+  margin: 0;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+.site-description {
+  font-size: 24px;
+  font-size: 1.5rem;
+  font-family: Lora, Georgia, sans-serif;
+  font-style: italic;
+  margin: 0;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+/*--------------------------------------------------------------
+7.2 Posts & Pages
+--------------------------------------------------------------*/
+.entry-header {
+  margin-bottom: 1.5em;
+}
+
+.entry-title {
+  font-size: 38.4px;
+  font-size: 2.4rem;
+  color: #333333;
+  font-weight: 400;
+  line-height: 1.3;
+  margin: 0 0 15px;
+  text-align: left;
+}
+.entry-title a {
+  color: #333333;
+  text-decoration: none;
+}
+
+.entry-meta {
+  font-size: 17.6px;
+  font-size: 1.1rem;
+  color: #979797;
+  margin: 0 0 1em;
+  text-align: left;
+  text-transform: uppercase;
+}
+.entry-meta a {
+  text-decoration: none;
+}
+.entry-meta a:hover {
+  text-decoration: underline;
+}
+
+.entry-footer {
+  font-size: 17.6px;
+  font-size: 1.1rem;
+  color: #979797;
+  margin: 1em 0;
+  text-transform: uppercase;
+}
+.entry-footer a {
+  color: #979797;
+}
+.entry-footer a:hover {
+  text-decoration: none;
+}
+
+.post-thumbnail {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+}
+
+/* Post Layouts */
+.layout-list .post,
+.single .post {
+  margin-bottom: 1.5em;
+}
+
+.layout-full .post {
+  margin-bottom: 5em;
+}
+
+.layout-list .post:before, .layout-list .post:after {
+  content: "";
+  display: table;
+}
+.layout-list .post:after {
+  clear: both;
+}
+
+@media (min-width: 768px) {
+  #post-feed.layout-grid-2-col,
+  #post-feed.layout-grid-3-col {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  #post-feed.layout-grid-2-col .full-post,
+  #post-feed.layout-grid-3-col .full-post {
+    width: 100% !important;
+  }
+
+  .layout-grid-2-col {
+    margin: 0 -15px;
+  }
+  .layout-grid-2-col .post {
+    padding: 0 15px;
+    width: 50%;
+  }
+
+  .layout-grid-3-col {
+    margin: 0 -15px;
+  }
+  .layout-grid-3-col .post {
+    padding: 0 15px;
+    width: 33.3%;
+  }
+
+  .layout-list .post-thumbnail {
+    float: left;
+    margin: 0 15px 15px 0;
+    max-width: 250px;
+  }
+}
+/* Archives */
+.page-title {
+  margin-bottom: 1.5em;
+  text-align: center;
+}
+
+/* Landing Page Template */
+.page-template-landing #content {
+  padding: 2em 0;
+}
+.page-template-landing.layout-style-full #content {
+  padding: 4em 0;
+}
+
+/* 404 Error */
+@media (min-width: 768px) {
+  #error-404-widgets {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin: 0 -15px;
+  }
+  #error-404-widgets .widget {
+    width: 49%;
+  }
+}
+/*--------------------------------------------------------------
+7.3 Comments
+--------------------------------------------------------------*/
+#comments {
+  border-top: 4px double #eee;
+  margin-top: 1.5em;
+  padding-top: 1.5em;
+}
+
+@media (min-width: 768px) {
+  .comment-author {
+    float: left;
+    line-height: 32px;
+  }
+
+  .comment-metadata {
+    float: right;
+  }
+
+  .comment-content {
+    clear: both;
+    padding-top: .5em;
+  }
+}
+/* Comments List */
+.comment-list,
+.comment-list .children {
+  counter-reset: section;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.comment-list .avatar {
+  float: left;
+  margin-right: 1em;
+}
+.comment-list .depth-2 {
+  padding-left: 2em;
+}
+@media (min-width: 768px) {
+  .comment-list {
+        /*li {
+            position: relative;
+
+            &:before {
+                background: $color-tertiary;
+                content: counters(section,'.') ' ';
+                counter-increment: section;
+                display: inline-block;
+                float: left;
+                margin: 1em 1em 0 0;
+                padding: 5px 15px;
+            }
+        }*/
+  }
+  .comment-list .depth-2,
+  .comment-list .depth-3,
+  .comment-list .depth-4 {
+    padding-left: 4em;
+  }
+}
+
+.comment-metadata a {
+  font-size: 17.6px;
+  font-size: 1.1rem;
+  color: #979797;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.comment-body {
+  border-top: 4px double #eee;
+  margin: 1em 0;
+  padding: 1em 0 0;
+}
+
+/*--------------------------------------------------------------
+7.4 Sidebar
+--------------------------------------------------------------*/
+.widget {
+  border: 4px double #eee;
+  margin: 0 0 1.5em;
+  padding: 15px;
+}
+
+.widget-area .button:not(.screen-reader-text),
+.widget-area input[type="submit"]:not(.screen-reader-text),
+.widget-area button:not(.screen-reader-text) {
+  display: block;
+  margin-top: 3px;
+  width: 100%;
+}
+
+.widget-title {
+  font-size: 32px;
+  font-size: 2rem;
+  color: #323232;
+  display: block;
+  font-weight: 400;
+  margin: 0 0 15px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+}
+
+#below-posts-widget-area {
+  margin-bottom: 1.5em;
+}
+
+.widget.highlight {
+  background: #70d8c4;
+  color: white;
+  padding: 15px;
+}
+.widget.highlight .widget-title {
+  color: white;
+}
+.widget.highlight .widget-title span {
+  background: #70d8c4 !important;
+}
+.widget.highlight .widget-title:before {
+  background: white !important;
+}
+.widget.highlight .button,
+.widget.highlight button,
+.widget.highlight input[type="submit"] {
+  background: white;
+  color: #70d8c4;
+}
+.widget.highlight .button:hover,
+.widget.highlight button:hover,
+.widget.highlight input[type="submit"]:hover {
+  background: #70d8c4;
+  color: white;
+}
+
+/* Responsive Stuff */
+.sidebar-toggle {
+  display: block;
+  margin: 0 auto 15px;
+}
+@media (min-width: 768px) {
+  .sidebar-toggle {
+    display: none;
+  }
+}
+
+#sidebar-right,
+#sidebar-left {
+  display: none;
+}
+#sidebar-right.toggled,
+#sidebar-left.toggled {
+  display: block;
+}
+@media (min-width: 768px) {
+  #sidebar-right,
+  #sidebar-left {
+    display: block;
+  }
+}
+
+/*--------------------------------------------------------------
+7.5 Footer
+--------------------------------------------------------------*/
+#content {
+  border-bottom: 4px double #eee;
+  padding-bottom: 1.5em;
+}
+
+#footer-widgets {
+  margin: 0 -15px;
+}
+#footer-widgets .widget {
+  margin: 1.5em 0;
+}
+#footer-widgets .widget-title {
+  margin: 0 0 15px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  #footer-widgets {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+  #footer-widgets.widget-columns-1 .widget {
+    width: 100%;
+  }
+  #footer-widgets.widget-columns-2 .widget {
+    width: 49%;
+  }
+  #footer-widgets.widget-columns-3 .widget {
+    width: 32.3%;
+  }
+  #footer-widgets.widget-columns-4 .widget {
+    width: 24%;
+  }
+  #footer-widgets.widget-columns-5 .widget {
+    width: 19%;
+  }
+}
+
+#footer {
+  font-size: 20.8px;
+  font-size: 1.3rem;
+  border-top: 4px double #eee;
+  color: #999999;
+  padding: 1.5em 0;
+  text-align: center;
+}
+
+/*--------------------------------------------------------------
+8 Media
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+8.1 Audio
+--------------------------------------------------------------*/
+.wp-audio-shortcode {
+  margin-bottom: 1.5em;
+}
+
+/*--------------------------------------------------------------
+8.2 Images
+--------------------------------------------------------------*/
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+/*--------------------------------------------------------------
+8.3 Captions
+--------------------------------------------------------------*/
+.wp-caption {
+  margin: 0 0 1em;
+  max-width: 100%;
+}
+.wp-caption.alignleft {
+  margin-right: 1.5em;
+}
+.wp-caption.alignright {
+  margin-left: 1.5em;
+}
+.wp-caption.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.wp-caption img[class*="wp-image-"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-caption-text {
+  color: #979797;
+  font-style: italic;
+  margin: 0.8075em 0 0;
+  text-align: center;
+}
+
+/*--------------------------------------------------------------
+8.4 Galleries
+--------------------------------------------------------------*/
+.gallery {
+  margin-bottom: 1.5em;
+}
+
+.gallery-item {
+  display: inline-block;
+  margin: 0;
+  padding: 6px;
+  text-align: center;
+  vertical-align: top;
+  width: 100%;
+}
+.gallery-columns-2 .gallery-item {
+  max-width: 50%;
+}
+.gallery-columns-3 .gallery-item {
+  max-width: 33.33%;
+}
+.gallery-columns-4 .gallery-item {
+  max-width: 25%;
+}
+.gallery-columns-5 .gallery-item {
+  max-width: 20%;
+}
+.gallery-columns-6 .gallery-item {
+  max-width: 16.66%;
+}
+.gallery-columns-7 .gallery-item {
+  max-width: 14.28%;
+}
+.gallery-columns-8 .gallery-item {
+  max-width: 12.5%;
+}
+.gallery-columns-9 .gallery-item {
+  max-width: 11.11%;
+}
+
+.gallery-caption {
+  display: block;
+}
+
+/*--------------------------------------------------------------
+9 Plugins
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+9.1 Expanding Archives
+--------------------------------------------------------------*/
+#secondary .widget_ng_expanding_archives {
+  box-shadow: none;
+  padding: 0;
+}
+#secondary .widget_ng_expanding_archives:before {
+  display: none;
+}
+
+/* Year Title */
+.expanding-archives-title {
+  font-size: 22.4px;
+  font-size: 1.4rem;
+  background: #70d8c4;
+  font-weight: normal;
+  margin: 0;
+}
+.expanding-archives-title a {
+  color: white;
+  display: block;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+.expanding-archives-title a:hover {
+  color: white;
+}
+
+/* The wrapper around the list of posts */
+.expanding-archives-collapse-section {
+  border: 1px solid #70d8c4;
+  display: none;
+  padding: 10px;
+}
+.expanding-archives-collapse-section.expanding-archives-expanded {
+  display: block;
+}
+.expanding-archives-collapse-section ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.expanding-archives-collapse-section ul li {
+  background: none;
+  clear: both;
+  padding: 0;
+}
+.expanding-archives-collapse-section ul li:before {
+  display: none;
+}
+
+/* The number of posts in a month */
+.expanding-archive-count {
+  float: right;
+}
+
+/* The list of posts */
+.expanding-archive-month-results {
+  padding-left: 30px;
+}
+
+/*--------------------------------------------------------------
+9.2 Naked Social Share
+--------------------------------------------------------------*/
+.naked-social-share {
+  padding-right: 1px;
+}
+.naked-social-share ul {
+  list-style: none;
+  margin: .5em 0;
+  padding: 0;
+  text-align: center;
+}
+.naked-social-share ul li {
+  display: inline-block;
+  padding: 0;
+  width: 49%;
+}
+.naked-social-share ul li:before {
+  display: none;
+}
+@media (min-width: 768px) {
+  .naked-social-share ul li {
+    width: 24%;
+  }
+}
+.naked-social-share ul a {
+  font-size: 17.6px;
+  font-size: 1.1rem;
+  border: 1px solid #70d8c4;
+  color: #70d8c4;
+  display: block;
+  overflow: hidden;
+  padding: 3px 30px 3px 8px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 10;
+}
+.naked-social-share ul a:hover {
+  background: #70d8c4;
+  color: white;
+}
+.naked-social-share ul .fa {
+  margin-right: 3px;
+}
+.naked-social-share ul .nss-site-count {
+  background: #70d8c4;
+  color: white;
+  font-weight: 600;
+  line-height: 23px;
+  height: 100%;
+  margin-left: 3px;
+  padding: 0 8px 0 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/*--------------------------------------------------------------
+9.2 NG About the Author
+--------------------------------------------------------------*/
+.ng-about-author,
+.cw-about-author {
+  border: 1px solid #f4f4f4;
+  border-left: none;
+  border-right: none;
+  margin: 1.5em -15px;
+  padding: 15px;
+}
+.ng-about-author h4,
+.cw-about-author h4 {
+  margin-top: 0;
+}
+@media (min-width: 768px) {
+  .layout-style-boxed .ng-about-author, .layout-style-boxed
+  .cw-about-author {
+    margin-left: -30px;
+    margin-right: -30px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+/*--------------------------------------------------------------
+9.3 Novelist
+--------------------------------------------------------------*/
+/* Book Archive */
+.novelist-book-archive .book {
+  clear: both;
+  margin-bottom: 1.5em;
+  overflow: hidden;
+}
+.novelist-book-archive .book .book-synopsis {
+  border: none;
+  padding: 0;
+}
+.novelist-book-archive .book .entry-footer .button {
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .book-cover-wrap {
+    float: left;
+    width: 200px;
+  }
+  .book-cover-wrap .book-wrap-item {
+    margin-bottom: .5em;
+  }
+
+  .book-content-wrap {
+    margin-left: 250px;
+  }
+}
+/* Single Book */
+.single-book .entry-title {
+  text-align: center;
+}
+.single-book .pull-left {
+  float: left;
+  font-style: italic;
+  text-transform: lowercase;
+  width: 30%;
+}
+.single-book .pull-right {
+  float: right;
+  text-align: right;
+  width: 68%;
+}
+
+#also-in-this-series {
+  margin-top: 1.5em;
+  text-align: center;
+}
+#also-in-this-series h2 {
+  font-size: 24px;
+  font-size: 1.5rem;
+  font-style: italic;
+  text-transform: lowercase;
+}
+#also-in-this-series .novelist-series-books-grid {
+  justify-content: center;
+}
+#also-in-this-series .novelist-series-books-grid .novelist-series-book {
+  width: 50%;
+}
+
+/* Purchase Links Dropdown */
+.purchase-links-list-dropdown {
+  position: relative;
+}
+
+.purchase-links-list {
+  background: #70d8c4;
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 200px;
+}
+.purchase-links-list.purchase-links-list-open {
+  display: block;
+}
+.purchase-links-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.purchase-links-list a {
+  color: white;
+  display: block;
+  padding: .5em 1em;
+  text-decoration: none;
+}
+.purchase-links-list a:hover {
+  background: #5cd3bc;
+}

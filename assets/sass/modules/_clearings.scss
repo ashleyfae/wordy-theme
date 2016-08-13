@@ -1,0 +1,16 @@
+.container:before,
+.container:after,
+#content:before,
+#content:after,
+.comment-author:before,
+.comment-author:after,
+.book-wrap-item:before,
+.book-wrap-item:after {
+    @include clearfix;
+}
+
+.container:after,
+#content:after,
+.book-wrap-item:after {
+    @include clearfix-after;
+}

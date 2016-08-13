@@ -1,0 +1,62 @@
+.naked-social-share {
+    padding-right: 1px;
+
+    ul {
+        list-style: none;
+        margin: .5em 0;
+        padding: 0;
+        text-align: center;
+
+        li {
+            display: inline-block;
+            padding: 0;
+            width: 49%;
+
+            &:before {
+                display: none;
+            }
+
+            @media (min-width: 768px) {
+                width: 24%;
+            }
+        }
+
+        a {
+            @include font-size(1.1);
+            border: 1px solid $color-primary;
+            color: $color-primary;
+            display: block;
+            overflow: hidden;
+            padding: 3px 30px 3px 8px;
+            position: relative;
+            text-decoration: none;
+            text-transform: uppercase;
+            white-space: nowrap;
+            z-index: 10;
+
+            &:hover {
+                background: $color-primary;
+                color: white;
+            }
+        }
+
+        .fa {
+            margin-right: 3px;
+        }
+
+        .nss-site-count {
+            background: $color-primary;
+            color: white;
+            font: {
+                weight: 600;
+            }
+            line-height: 23px;
+            height: 100%;
+            margin-left: 3px;
+            padding: 0 8px 0 10px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+}

@@ -1,0 +1,126 @@
+/* Book Archive */
+
+.novelist-book-archive {
+    .book {
+        clear: both;
+        margin-bottom: 1.5em;
+        overflow: hidden;
+
+        .book-synopsis {
+            border: none;
+            padding: 0;
+        }
+
+        .entry-footer {
+            .button {
+                color: white;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .book-cover-wrap {
+        float: left;
+        width: 200px;
+
+        .single-book & {
+            //width: 300px;
+        }
+
+        .book-wrap-item {
+            margin-bottom: .5em;
+        }
+    }
+
+    .book-content-wrap {
+        margin-left: 250px;
+
+        .single-book & {
+            //margin-left: 350px;
+        }
+    }
+}
+
+/* Single Book */
+
+.single-book {
+    .entry-title {
+        text-align: center;
+    }
+
+    .pull-left {
+        float: left;
+        font: {
+            style: italic;
+        }
+        text-transform: lowercase;
+        width: 30%;
+    }
+
+    .pull-right {
+        float: right;
+        text-align: right;
+        width: 68%;
+    }
+}
+
+#also-in-this-series {
+    margin-top: 1.5em;
+    text-align: center;
+
+    h2 {
+        @include font-size(1.5);
+        font: {
+            style: italic;
+        }
+        text-transform: lowercase;
+    }
+
+    .novelist-series-books-grid {
+        justify-content: center;
+
+        .novelist-series-book {
+            width: 50%;
+        }
+    }
+}
+
+/* Purchase Links Dropdown */
+
+.purchase-links-list-dropdown {
+    position: relative;
+}
+
+.purchase-links-list {
+    background: $color-primary;
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+
+    &.purchase-links-list-open {
+        display: block;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        color: white;
+        display: block;
+        padding: .5em 1em;
+        text-decoration: none;
+
+        &:hover {
+            background: $color-primary-dark;
+        }
+    }
+}
