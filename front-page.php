@@ -11,6 +11,18 @@
 
 get_header();
 
+while ( have_posts() ) : the_post();
+
+	if ( get_the_content() ) {
+		?>
+		<section id="homepage-post-content">
+			<?php the_content(); ?>
+		</section>
+		<?php
+	}
+
+endwhile;
+
 /**
  * Display the featured book.
  */

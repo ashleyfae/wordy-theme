@@ -20,9 +20,10 @@ function wordy_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'wordy/custom-header-args', array(
 		'default-image'      => '',
 		'default-text-color' => 'ffffff',
-		'width'              => 1000,
-		'height'             => 250,
+		'width'              => 300,
+		'height'             => 66,
 		'flex-height'        => true,
+		'flex-width'         => true,
 		'wp-head-callback'   => 'wordy_header_style',
 	) ) );
 }

@@ -257,6 +257,42 @@ function wordy_get_social_sites() {
 	return apply_filters( 'wordy/get-social-sites', $sites );
 }
 
+function wordy_get_social_links() {
+	$link_array = array();
+	$link_type  = get_theme_mod( 'social_link_type', 'square' ) == 'square' ? 'icon-square' : 'icon';
+
+	foreach ( wordy_get_social_sites() as $key => $options ) {
+		$value = get_theme_mod( $key );
+
+		if ( empty( $value ) ) {
+			continue;
+		}
+
+		$url = is_email( $value ) ? 'mailto:' . esc_attr( $value ) : esc_url( $value );
+
+		$link_array[] = '<a href="' . $url . '" class="social-site-' . esc_attr( $key ) . '" target="_blank"><i class="fa fa-' . esc_attr( $options[ $link_type ] ) . '"></i></a>';
+	}
+
+	return implode( "\n", $link_array );
+}
+
+/**
+ * Append Social Media Links to the Navigation
+ *
+ * @uses  wordy_get_social_links()
+ *
+ * @param string $items Compiled menu `<li>` tags.
+ * @param array  $args  Menu arguments.
+ *
+ * @since 1.0
+ * @return string New menu with social media links appended.
+ */
+function wordy_append_social_media_navigation( $items, $args ) {
+	return $items . '<li id="social-links">' . wordy_get_social_links();
+}
+
+add_filter( 'wp_nav_menu_items', 'wordy_append_social_media_navigation', 10, 2 );
+
 /**
  * Delete Customizer Transients
  *
@@ -342,6 +378,16 @@ function wordy_filter_front_page_template( $template ) {
 
 add_filter( 'frontpage_template', 'wordy_filter_front_page_template' );
 
+/**
+ * Get Default CTA Box Values
+ *
+ * Returns the default values (text and URL) for a given CTA box.
+ *
+ * @param int $number CTA box number.
+ *
+ * @since 1.0
+ * @return array
+ */
 function wordy_get_default_cta_values( $number = 1 ) {
 	$text = $url = '';
 

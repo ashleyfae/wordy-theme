@@ -145,9 +145,16 @@ class Wordy_Customizer {
 		) );
 
 		/* Social Media */
+		$wp_customize->selective_refresh->add_partial( 'social_link_type', array(
+			'selector'        => '#header #social-links',
+			'settings'        => 'social_link_type',
+			'render_callback' => function () {
+				return wordy_get_social_links();
+			}
+		) );
 		foreach ( wordy_get_social_sites() as $key => $site ) {
 			$wp_customize->selective_refresh->add_partial( $key, array(
-				'selector'        => '#header .social-media-links',
+				'selector'        => '#header #social-links',
 				'settings'        => $key,
 				'render_callback' => function () {
 					return wordy_get_social_links();
@@ -243,7 +250,8 @@ class Wordy_Customizer {
 		/* Icon Type */
 		$wp_customize->add_setting( 'social_link_type', array(
 			'default'           => 'square',
-			'sanitize_callback' => array( $this, 'sanitize_social_link_type' )
+			'sanitize_callback' => array( $this, 'sanitize_social_link_type' ),
+			'transport'         => $wp_customize->selective_refresh ? 'postMessage' : 'refresh'
 		) );
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'social_link_type', array(
 			'label'    => esc_html__( 'Icon Type', 'wordy' ),

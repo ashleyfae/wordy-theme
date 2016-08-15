@@ -31,35 +31,6 @@ function wordy_entry_footer() {
 }
 
 /**
- * Get Social Media Links
- *
- * @since 1.0
- * @return string
- */
-function wordy_get_social_links() {
-	$link_array = array();
-	$link_type  = get_theme_mod( 'social_link_type', 'square' ) == 'square' ? 'icon-square' : 'icon';
-
-	foreach ( wordy_get_social_sites() as $key => $options ) {
-		$value = get_theme_mod( $key );
-
-		if ( empty( $value ) ) {
-			continue;
-		}
-
-		$url = is_email( $value ) ? 'mailto:' . esc_attr( $value ) : esc_url( $value );
-
-		$link_array[] = '<li class="social-site-' . esc_attr( $key ) . '"><a href="' . $url . '" target="_blank"><i class="fa fa-' . esc_attr( $options[ $link_type ] ) . '"></i></a></li>';
-	}
-
-	if ( empty( $link_array ) || ! count( $link_array ) ) {
-		return '';
-	}
-
-	return '<ul>' . implode( '', $link_array ) . '</ul>';
-}
-
-/**
  * Main Navigation Menu
  *
  * @since 1.0
