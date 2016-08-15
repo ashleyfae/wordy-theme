@@ -255,11 +255,12 @@ textarea:focus {
 # Links
 --------------------------------------------------------------*/
 a {
-  color: #333;
-  text-decoration: none;
+  color: #3a87ad;
+  text-decoration: underline;
 }
 a:hover {
-  color: #ffc0ba;
+  color: #3a87ad;
+  text-decoration: none;
 }
 
 /*--------------------------------------------------------------

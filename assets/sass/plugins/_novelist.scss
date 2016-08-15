@@ -40,3 +40,39 @@
         margin: 0 0 5px;
     }
 }
+
+/* Book Archive */
+
+#book-feed {
+    .book {
+        margin: 0 0 2em;
+    }
+
+    .entry-title {
+        text-align: left;
+    }
+
+    @media (min-width: 768px) {
+        .book {
+            clear: both;
+            margin: 0 auto 4em;
+
+            &:before, &:after {
+                @include clearfix;
+            }
+        }
+
+        .book-cover-wrap {
+            float: left;
+            width: 300px;
+        }
+
+        .book-content-wrap {
+            margin-left: 320px;
+        }
+
+        .pagination {
+            margin-left: 320px;
+        }
+    }
+}

@@ -389,11 +389,12 @@ textarea:focus {
 5.1 Links
 --------------------------------------------------------------*/
 a {
-  color: #333;
-  text-decoration: none;
+  color: #3a87ad;
+  text-decoration: underline;
 }
 a:hover {
-  color: #ffc0ba;
+  color: #3a87ad;
+  text-decoration: none;
 }
 
 /*--------------------------------------------------------------
@@ -627,6 +628,11 @@ body {
   margin: 0 0 1.5em;
   padding: 1em 0;
 }
+@media (min-width: 768px) {
+  #header {
+    margin-bottom: 2em;
+  }
+}
 
 .site-title {
   font-size: 48px;
@@ -635,6 +641,7 @@ body {
 }
 .site-title a {
   color: white;
+  text-decoration: none;
 }
 
 .site-description {
@@ -687,6 +694,34 @@ body {
   padding: 2em 0;
 }
 
+#cta-boxes .box {
+  background-color: #333;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  margin: 0 0 1em;
+}
+#cta-boxes h3 {
+  margin: 0;
+}
+#cta-boxes a {
+  color: white;
+  display: block;
+  padding: 4em 1em;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  #cta-boxes {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -15px;
+  }
+  #cta-boxes .box {
+    flex: 1 0 0;
+    margin: 0 15px;
+  }
+}
+
 /* Posts / Pages */
 .entry-header {
   margin-bottom: 1.5em;
@@ -699,7 +734,7 @@ body {
   font-weight: 400;
   line-height: 1.3;
   margin: 0 0 15px;
-  text-align: left;
+  text-align: center;
 }
 .entry-title a {
   color: #333333;
@@ -728,10 +763,10 @@ body {
   margin: 1em 0;
   text-transform: uppercase;
 }
-.entry-footer a {
+.entry-footer a:not(.button) {
   color: #979797;
 }
-.entry-footer a:hover {
+.entry-footer a:not(.button):hover {
   text-decoration: none;
 }
 
@@ -970,6 +1005,11 @@ body {
   color: #afafaf;
   margin-top: 1.5em;
   padding: 1.5em 0;
+}
+@media (min-width: 768px) {
+  #footer {
+    margin-top: 2em;
+  }
 }
 #footer a {
   color: white;
@@ -1263,4 +1303,32 @@ img {
 }
 .wordy-novelist-purchase-links li {
   margin: 0 0 5px;
+}
+
+/* Book Archive */
+#book-feed .book {
+  margin: 0 0 2em;
+}
+#book-feed .entry-title {
+  text-align: left;
+}
+@media (min-width: 768px) {
+  #book-feed .book {
+    clear: both;
+    margin: 0 auto 4em;
+  }
+  #book-feed .book:before, #book-feed .book:after {
+    content: "";
+    display: table;
+  }
+  #book-feed .book-cover-wrap {
+    float: left;
+    width: 300px;
+  }
+  #book-feed .book-content-wrap {
+    margin-left: 320px;
+  }
+  #book-feed .pagination {
+    margin-left: 320px;
+  }
 }

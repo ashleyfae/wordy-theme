@@ -44,6 +44,72 @@
         });
     });
 
+    // Primary colour.
+    wp.customize('primary_colour', function (value) {
+        value.bind(function (to) {
+            $('#header, #footer, .button, button, input[type="submit"], .pagination .current').css({
+                'background-color': to
+            });
+        });
+    });
+
+    // CTA box #1
+    wp.customize('cta_text_1', function (value) {
+        value.bind(function (to) {
+            $('#cta-box-1 a').text(to);
+        });
+    });
+    wp.customize('cta_url_1', function (value) {
+        value.bind(function (to) {
+            $('#cta-box-1 a').attr('href', to);
+        });
+    });
+    wp.customize('cta_image_1', function (value) {
+        value.bind(function (to) {
+            $('#cta-box-1').css({
+                'background-image': 'url(' + to + ')'
+            })
+        });
+    });
+
+    // CTA box #2
+    wp.customize('cta_text_2', function (value) {
+        value.bind(function (to) {
+            $('#cta-box-2 a').text(to);
+        });
+    });
+    wp.customize('cta_url_2', function (value) {
+        value.bind(function (to) {
+            $('#cta-box-2 a').attr('href', to);
+        });
+    });
+    wp.customize('cta_image_2', function (value) {
+        value.bind(function (to) {
+            $('#cta-box-2').css({
+                'background-image': 'url(' + to + ')'
+            })
+        });
+    });
+
+    // CTA box #1
+    wp.customize('cta_text_3', function (value) {
+        value.bind(function (to) {
+            $('#cta-box-3 a').text(to);
+        });
+    });
+    wp.customize('cta_url_3', function (value) {
+        value.bind(function (to) {
+            $('#cta-box-3 a').attr('href', to);
+        });
+    });
+    wp.customize('cta_image_3', function (value) {
+        value.bind(function (to) {
+            $('#cta-box-3').css({
+                'background-image': 'url(' + to + ')'
+            })
+        });
+    });
+
     // Affiliate ID
     wp.customize('affiliate_id', function (value) {
         value.bind(function (to) {

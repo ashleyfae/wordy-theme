@@ -41,9 +41,28 @@ class Wordy_Customizer {
 		$theme       = wp_get_theme();
 		$this->theme = $theme;
 
+		add_action( 'customize_register', array( $this, 'include_controls' ) );
 		add_action( 'customize_register', array( $this, 'register_customize_sections' ) );
 		add_action( 'customize_register', array( $this, 'refresh' ) );
 		add_action( 'customize_preview_init', array( $this, 'live_preview' ) );
+		//add_action( 'customize_controls_enqueue_scripts', array( $this, 'customizer_js' ) );
+
+	}
+
+	/**
+	 * Include Custom Controls
+	 *
+	 * Includes all our custom control classes.
+	 *
+	 * @param WP_Customize_Manager $wp_customize
+	 *
+	 * @access public
+	 * @since  1.0
+	 * @return void
+	 */
+	public function include_controls( $wp_customize ) {
+
+		require_once get_template_directory() . '/inc/customizer/controls/class-wordy-heading-control.php';
 
 	}
 
@@ -85,6 +104,7 @@ class Wordy_Customizer {
 		$this->colours_section( $wp_customize );
 		$this->typography_section( $wp_customize );
 		$this->social_media_section( $wp_customize );
+		$this->static_front_page_section( $wp_customize );
 		$this->footer_section( $wp_customize );
 
 		$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
@@ -112,6 +132,18 @@ class Wordy_Customizer {
 			return;
 		}
 
+		/* Featured Book */
+		$wp_customize->selective_refresh->add_partial( 'homepage_featured_book', array(
+			'selector'        => '#featured-book',
+			'settings'        => 'homepage_featured_book',
+			'render_callback' => function () {
+				ob_start();
+				wordy_featured_book();
+
+				return ob_get_clean();
+			}
+		) );
+
 		/* Social Media */
 		foreach ( wordy_get_social_sites() as $key => $site ) {
 			$wp_customize->selective_refresh->add_partial( $key, array(
@@ -135,6 +167,33 @@ class Wordy_Customizer {
 	 * @return void
 	 */
 	private function colours_section( $wp_customize ) {
+
+		/* Primary Colour */
+		$wp_customize->add_setting( 'primary_colour', array(
+			'default'           => '#333333',
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport'         => 'postMessage',
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'primary_colour', array(
+			'label'       => esc_html__( 'Primary Colour', 'wordy' ),
+			'description' => esc_html__( 'Header, footer, and button background colour.', 'wordy' ),
+			'section'     => 'colors',
+			'settings'    => 'primary_colour',
+			'priority'    => 10
+		) ) );
+
+		/* Secondary Colour */
+		$wp_customize->add_setting( 'secondary_colour', array(
+			'default'           => '#3a87ad',
+			'sanitize_callback' => 'sanitize_hex_color'
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'secondary_colour', array(
+			'label'       => esc_html__( 'Secondary Colour', 'wordy' ),
+			'description' => esc_html__( 'Link colour.', 'wordy' ),
+			'section'     => 'colors',
+			'settings'    => 'secondary_colour',
+			'priority'    => 20
+		) ) );
 
 	}
 
@@ -212,6 +271,90 @@ class Wordy_Customizer {
 				'section'  => 'social_media',
 				'settings' => $key
 			) ) );
+		}
+
+	}
+
+	/**
+	 * Section: Static Front Page
+	 *
+	 * @param WP_Customize_Manager $wp_customize
+	 *
+	 * @access private
+	 * @since  1.0
+	 * @return void
+	 */
+	private function static_front_page_section( $wp_customize ) {
+
+		/* CTA Boxes */
+
+		// Heading
+		$wp_customize->add_setting( 'cta_heading', array(
+			'sanitize_callback' => 'sanitize_text_field'
+		) );
+		$wp_customize->add_control( new Wordy_Heading_Control( $wp_customize, 'cta_heading', array(
+			'label'       => esc_html__( 'Call to Action Boxes', 'wordy' ),
+			'description' => esc_html__( 'Text to appear inside the box.', 'wordy' ),
+			'type'        => 'wordy_heading',
+			'section'     => 'static_front_page',
+			'settings'    => 'cta_heading',
+			'priority'    => 100
+		) ) );
+
+		$priority = 110;
+
+		foreach ( range( 1, 3 ) as $number ) {
+			$defaults = wordy_get_default_cta_values( $number );
+
+			// Text
+			$wp_customize->add_setting( 'cta_text_' . $number, array(
+				'default'           => $defaults['text'],
+				'sanitize_callback' => 'sanitize_text_field',
+				'transport'         => 'postMessage'
+			) );
+			$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'cta_text_' . $number, array(
+				'label'       => sprintf( esc_html__( 'Box #%s Text', 'wordy' ), $number ),
+				'description' => esc_html__( 'Text to appear inside the box.', 'wordy' ),
+				'type'        => 'text',
+				'section'     => 'static_front_page',
+				'settings'    => 'cta_text_' . $number,
+				'priority'    => $priority
+			) ) );
+
+			$priority += 10;
+
+			// URL
+			$wp_customize->add_setting( 'cta_url_' . $number, array(
+				'default'           => $defaults['url'],
+				'sanitize_callback' => 'esc_url_raw',
+				'transport'         => 'postMessage'
+			) );
+			$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'cta_url_' . $number, array(
+				'label'       => sprintf( esc_html__( 'Box #%s URL', 'wordy' ), $number ),
+				'description' => esc_html__( 'URL for the box to link to.', 'wordy' ),
+				'type'        => 'text',
+				'section'     => 'static_front_page',
+				'settings'    => 'cta_url_' . $number,
+				'priority'    => $priority
+			) ) );
+
+			$priority += 10;
+
+			// URL
+			$wp_customize->add_setting( 'cta_image_' . $number, array(
+				'default'           => '',
+				'sanitize_callback' => 'esc_url_raw',
+				'transport'         => 'postMessage'
+			) );
+			$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'cta_image_' . $number, array(
+				'label'       => sprintf( esc_html__( 'Box #%s Image', 'wordy' ), $number ),
+				'description' => esc_html__( 'This image will appear in the background.', 'wordy' ),
+				'section'     => 'static_front_page',
+				'settings'    => 'cta_image_' . $number,
+				'priority'    => $priority
+			) ) );
+
+			$priority += 10;
 		}
 
 	}
@@ -417,6 +560,20 @@ class Wordy_Customizer {
 			$this->theme->get( 'Version' ),
 			true
 		);
+
+	}
+
+	public function customizer_js() {
+
+		if ( ! wp_script_is( 'wp-color-picker', 'enqueued' ) ) {
+			return;
+		}
+
+		// Use minified libraries if SCRIPT_DEBUG is turned off
+		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+		$deps   = array( 'jquery', 'wp-color-picker', 'iris' );
+
+		wp_enqueue_script( 'wordy-colour-picker', get_template_directory_uri() . '/inc/customizer/js/colour-picker' . $suffix . '.js', $deps, $this->theme->get( 'Version' ), true );
 
 	}
 

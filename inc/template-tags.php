@@ -10,6 +10,10 @@
  * @since     1.0
  */
 
+function wordy_entry_meta() {
+
+}
+
 /**
  * Post Footer
  *

@@ -30,9 +30,9 @@ function wordy_novelist_customizer_static_front_page( $wp_customize ) {
 		'sanitize_callback' => 'absint'
 	) );
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'homepage_featured_book', array(
-		'label'       => esc_html__( 'Featured Book', 'catherine' ),
-		'description' => esc_html__( 'Choose a book to feature on your homepage.', 'catherine' ),
-		'type'        => 'radio',
+		'label'       => esc_html__( 'Featured Book', 'wordy' ),
+		'description' => esc_html__( 'Choose a book to feature on your homepage.', 'wordy' ),
+		'type'        => 'select',
 		'choices'     => novelist_get_books(),
 		'section'     => 'static_front_page',
 		'settings'    => 'homepage_featured_book',
@@ -60,28 +60,25 @@ function wordy_featured_book() {
 	$cover          = $book->get_cover_image( 'large' );
 	$synopsis       = $book->get_synopsis();
 	$purchase_links = $book->get_purchase_links();
-	?>
-	<section id="featured-book">
-		<?php if ( $cover ) : ?>
-			<div id="featured-book-cover">
-				<?php echo $cover; ?>
-				<a href="<?php echo esc_url( get_permalink( $featured_book_id ) ); ?>" class="button button-block"><?php _e( 'More Details &raquo;', 'wordy' ); ?></a>
-			</div>
-		<?php endif; ?>
 
-		<?php if ( $synopsis ) : ?>
-			<blockquote id="featured-book-synopsis">
-				<?php echo wpautop( $synopsis ); ?>
-			</blockquote>
-		<?php endif; ?>
+	if ( $cover ) : ?>
+		<div id="featured-book-cover">
+			<?php echo $cover; ?>
+			<a href="<?php echo esc_url( get_permalink( $featured_book_id ) ); ?>" class="button button-block"><?php _e( 'More Details &raquo;', 'wordy' ); ?></a>
+		</div>
+	<?php endif; ?>
 
-		<?php if ( $purchase_links ) : ?>
-			<div id="featured-book-links">
-				<?php wordy_novelist_purchase_links( $book ); ?>
-			</div>
-		<?php endif; ?>
-	</section>
-	<?php
+	<?php if ( $synopsis ) : ?>
+		<blockquote id="featured-book-synopsis">
+			<?php echo wpautop( $synopsis ); ?>
+		</blockquote>
+	<?php endif; ?>
+
+	<?php if ( $purchase_links ) : ?>
+		<div id="featured-book-links">
+			<?php wordy_novelist_purchase_links( $book ); ?>
+		</div>
+	<?php endif;
 }
 
 /**
@@ -154,3 +151,24 @@ function wordy_novelist_3d_cover_size( $size, $book_id ) {
 }
 
 add_filter( 'novelist-3d-book-covers/render/image-size', 'wordy_novelist_3d_cover_size', 10, 2 );
+
+/**
+ * Always use 3D covers on the homepage.
+ *
+ * This overrides the 3D Book Covers settings to always use the 3D cover on the
+ * homepage for the featured book.
+ *
+ * @param bool $show_3d
+ *
+ * @since 1.0
+ * @return bool
+ */
+function wordy_novelist_3d_cover_on_homepage( $show_3d ) {
+	if ( is_front_page() ) {
+		return true;
+	}
+
+	return $show_3d;
+}
+
+add_filter( 'novelist-3d-book-covers/display-3d-cover', 'wordy_novelist_3d_cover_on_homepage' );

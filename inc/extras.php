@@ -17,7 +17,7 @@
  * @return bool
  */
 function wordy_cache() {
-	$cache = true;
+	$cache = false;
 
 	if ( defined( 'WP_DEBUG' ) && WP_DEBUG == true ) {
 		$cache = false;
@@ -80,6 +80,30 @@ function wordy_custom_css() {
 		}
 
 		$css .= 'body { font-family: ' . $family . '; }';
+	}
+
+	// Primary colour.
+	$primary_colour = get_theme_mod( 'primary_colour' );
+	if ( $primary_colour ) {
+		$css .= '#header, #footer, .button, button, input[type="submit"], .pagination .current { background-color: ' . esc_html( $primary_colour ) . '; }';
+		$css .= '.button:hover, button:hover, input[type="submit"]:hover { background: ' . esc_html( wordy_adjust_brightness( $primary_colour, - 30 ) ) . ' }';
+		$css .= '#footer { color: ' . esc_html( wordy_adjust_brightness( $primary_colour, 100 ) ) . ' }';
+
+		$css .= '@media (min-width: 768px) {';
+		$css .= '.main-navigation .sub-menu { background: ' . esc_html( $primary_colour ) . ' }';
+		$css .= '.main-navigation .sub-menu a:hover { background: ' . esc_html( wordy_adjust_brightness( $primary_colour, 20 ) ) . ' }';
+		$css .= '}';
+	}
+
+	// CTA Box Backgrounds
+	foreach ( range( 1, 3 ) as $number ) {
+		$image = get_theme_mod( 'cta_image_' . $number, false );
+
+		if ( empty( $image ) ) {
+			continue;
+		}
+
+		$css .= '#cta-box-' . absint( $number ) . ' { background-image: url(' . $image . '); }';
 	}
 
 	// Cache this.
@@ -317,6 +341,32 @@ function wordy_filter_front_page_template( $template ) {
 }
 
 add_filter( 'frontpage_template', 'wordy_filter_front_page_template' );
+
+function wordy_get_default_cta_values( $number = 1 ) {
+	$text = $url = '';
+
+	switch ( $number ) {
+		case 1 :
+			$text = __( 'YA Books', 'wordy' );
+			$url  = home_url( '/' );
+			break;
+
+		case 2 :
+			$text = __( 'Adult Books', 'wordy' );
+			$url  = home_url( '/' );
+			break;
+
+		case 3 :
+			$text = __( 'Blog', 'wordy' );
+			$url  = get_permalink( get_option( 'page_for_posts' ) );
+			break;
+	}
+
+	return array(
+		'text' => $text,
+		'url'  => $url
+	);
+}
 
 /**
  * Allow shortcodes in widgets.

@@ -1,14 +1,10 @@
 <?php
 /**
- * Default Template
- *
- * Displays the blog post archive. This template also gets used if a more specific one
- * doesn't exist.
+ * Single Post Template
  *
  * @package   wordy
  * @copyright Copyright (c) 2016, Nose Graze Ltd.
  * @license   GPL2+
- * @since     1.0
  */
 
 get_header(); ?>
@@ -20,16 +16,16 @@ get_header(); ?>
 			<?php while ( have_posts() ) : the_post();
 
 				/**
-				 * Allow child themes to modify the template part. By default it's template-parts/content.php.
+				 * Allow child themes to modify the template part. By default it's template-parts/content-single.php.
 				 *
 				 * @param string  $slug Template slug to use.
 				 * @param WP_Post $post Current post.
 				 *
 				 * @since 1.0
 				 */
-				$slug          = '';
+				$slug          = 'single';
 				$post          = get_post();
-				$template_slug = apply_filters( 'wordy/index/template-slug', $slug, $post );
+				$template_slug = apply_filters( 'wordy/single/template-slug', $slug, $post );
 
 				/**
 				 * Include the template part.
@@ -37,10 +33,6 @@ get_header(); ?>
 				get_template_part( 'template-parts/content', $template_slug );
 
 			endwhile; ?>
-
-			<nav class="pagination" role="navigation">
-				<?php echo paginate_links(); ?>
-			</nav>
 
 		<?php else : ?>
 

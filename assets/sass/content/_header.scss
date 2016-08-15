@@ -8,6 +8,10 @@ body {
     color: white;
     margin: 0 0 1.5em;
     padding: 1em 0;
+
+    @media (min-width: 768px) {
+        margin-bottom: 2em;
+    }
 }
 
 .site-title {
@@ -16,6 +20,7 @@ body {
 
     a {
         color: white;
+        text-decoration: none;
     }
 }
 
