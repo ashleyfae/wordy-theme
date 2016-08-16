@@ -1,10 +1,11 @@
 <?php
 /**
- * Single Post Template
+ * Template Name: Full Width Page
  *
  * @package   wordy
  * @copyright Copyright (c) 2016, Nose Graze Ltd.
  * @license   GPL2+
+ * @since     1.0
  */
 
 get_header(); ?>
@@ -16,10 +17,10 @@ get_header(); ?>
 			<?php while ( have_posts() ) : the_post();
 
 				/**
-				 * Post Content
-				 * Pull in template-parts/content-single.php, which displays the post content.
+				 * Page Content
+				 * Pull in template-parts/content-page.php, which displays the page content.
 				 */
-				get_template_part( 'template-parts/content', 'single' );
+				get_template_part( 'template-parts/content', 'page' );
 
 				/**
 				 * Comments Template
@@ -39,6 +40,4 @@ get_header(); ?>
 
 	</main>
 
-<?php
-get_sidebar();
-get_footer();
+<?php get_footer();

@@ -10,14 +10,14 @@
         if ($(this).attr('aria-expanded') == 'false') {
 
             $(this).attr('aria-expanded', 'true');
-            $(this).parent().parent().addClass('toggled');
+            $(this).parent().addClass('toggled');
 
 
         } else {
 
             // Menu is open, let's close it.
             $(this).attr('aria-expanded', 'false');
-            $(this).parent().parent().removeClass('toggled');
+            $(this).parent().removeClass('toggled');
 
         }
     });

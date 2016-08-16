@@ -10,8 +10,32 @@
  * @since     1.0
  */
 
+/**
+ * Entry Meta
+ *
+ * Displays the publication date and post category.
+ *
+ * @since 1.0
+ * @return void
+ */
 function wordy_entry_meta() {
+	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
+	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+	}
+
+	$time_string = sprintf( $time_string,
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() ),
+		esc_attr( get_the_modified_date( 'c' ) ),
+		esc_html( get_the_modified_date() )
+	);
+	?>
+	<div class="entry-meta">
+		<?php echo $time_string; ?> / <span class="entry-category"><?php the_category( ', ' ); ?></span>
+	</div>
+	<?php
 }
 
 /**
@@ -102,8 +126,8 @@ function wordy_get_post_thumbnail( $width = null, $height = null, $crop = true, 
 		$post = get_post();
 	}
 
-	$width  = $width ? $width : 520;
-	$height = $height ? $height : 400;
+	$width  = $width ? $width : 200;
+	$height = $height ? $height : 175;
 
 	$image_url = '';
 

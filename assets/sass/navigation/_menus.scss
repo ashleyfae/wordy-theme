@@ -29,8 +29,15 @@
 }
 
 .menu-toggle {
+    background: white;
+    color: #333;
     display: block;
     margin: 1.5em auto;
+
+    &:focus, &:hover {
+        background: white;
+        color: #333;
+    }
 }
 
 @media (min-width: 768px) {

@@ -85,8 +85,9 @@ class Wordy_Customizer {
 
 		// Social Media
 		$wp_customize->add_section( 'social_media', array(
-			'title'    => esc_html__( 'Social Media', 'wordy' ),
-			'priority' => 209
+			'title'       => esc_html__( 'Social Media', 'wordy' ),
+			'description' => esc_html__( 'If you fill out your social media profiles, icons will be added to the right of your navigation menu.', 'wordy' ),
+			'priority'    => 209
 		) );
 
 		// Footer
@@ -348,14 +349,30 @@ class Wordy_Customizer {
 
 			$priority += 10;
 
-			// URL
+			// Background Colour
+			$wp_customize->add_setting( 'cta_colour_' . $number, array(
+				'default'           => '#333333',
+				'sanitize_callback' => 'sanitize_hex_color',
+				'transport'         => 'postMessage',
+			) );
+			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'cta_colour_' . $number, array(
+				'label'       => sprintf( esc_html__( 'Box #%s BG Colour', 'wordy' ), $number ),
+				'description' => esc_html__( 'Background colour for this box.', 'wordy' ),
+				'section'     => 'static_front_page',
+				'settings'    => 'cta_colour_' . $number,
+				'priority'    => $priority
+			) ) );
+
+			$priority += 10;
+
+			// Background Image
 			$wp_customize->add_setting( 'cta_image_' . $number, array(
 				'default'           => '',
 				'sanitize_callback' => 'esc_url_raw',
 				'transport'         => 'postMessage'
 			) );
 			$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'cta_image_' . $number, array(
-				'label'       => sprintf( esc_html__( 'Box #%s Image', 'wordy' ), $number ),
+				'label'       => sprintf( esc_html__( 'Box #%s BG Image', 'wordy' ), $number ),
 				'description' => esc_html__( 'This image will appear in the background.', 'wordy' ),
 				'section'     => 'static_front_page',
 				'settings'    => 'cta_image_' . $number,

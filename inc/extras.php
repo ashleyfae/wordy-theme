@@ -10,6 +10,28 @@
  * @since     1.0
  */
 
+function wordy_body_classes( $classes ) {
+	if ( is_post_type_archive( array( 'book' ) ) ) {
+		return $classes;
+	}
+
+	if ( is_tax( array( 'novelist-genre', 'novelist-series' ) ) ) {
+		return $classes;
+	}
+
+	if ( is_page_template( 'page-templates/full-width.php' ) ) {
+		return $classes;
+	}
+
+	if ( is_singular() || is_home() || is_archive() ) {
+		$classes[] = 'has-sidebar';
+	}
+
+	return $classes;
+}
+
+add_filter( 'body_class', 'wordy_body_classes' );
+
 /**
  * Whether or not to cache CSS, fonts, etc.
  *
@@ -97,13 +119,23 @@ function wordy_custom_css() {
 
 	// CTA Box Backgrounds
 	foreach ( range( 1, 3 ) as $number ) {
-		$image = get_theme_mod( 'cta_image_' . $number, false );
+		$bg_colour = get_theme_mod( 'cta_colour_' . $number, false );
+		$image     = get_theme_mod( 'cta_image_' . $number, false );
 
-		if ( empty( $image ) ) {
+		if ( empty( $image ) && empty( $bg_colour ) ) {
 			continue;
 		}
 
-		$css .= '#cta-box-' . absint( $number ) . ' { background-image: url(' . $image . '); }';
+		$css .= '#cta-box-' . absint( $number ) . ' { ';
+
+		if ( $bg_colour ) {
+			$css .= 'background-color: ' . esc_html( $bg_colour ) . ';';
+		}
+		if ( $image ) {
+			$css .= 'background-image: url(' . esc_url( $image ) . ');';
+		}
+
+		$css .= '}';
 	}
 
 	// Cache this.
@@ -257,6 +289,14 @@ function wordy_get_social_sites() {
 	return apply_filters( 'wordy/get-social-sites', $sites );
 }
 
+/**
+ * Compile Social Media Links
+ *
+ * Generates the HTML for the social media links.
+ *
+ * @since 1.0
+ * @return string
+ */
 function wordy_get_social_links() {
 	$link_array = array();
 	$link_type  = get_theme_mod( 'social_link_type', 'square' ) == 'square' ? 'icon-square' : 'icon';

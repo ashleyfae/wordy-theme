@@ -64,6 +64,13 @@
             $('#cta-box-1 a').attr('href', to);
         });
     });
+    wp.customize('cta_colour_1', function (value) {
+        value.bind(function (to) {
+            $('#cta-box-1').css({
+                'background-color': to
+            })
+        });
+    });
     wp.customize('cta_image_1', function (value) {
         value.bind(function (to) {
             $('#cta-box-1').css({
@@ -83,6 +90,13 @@
             $('#cta-box-2 a').attr('href', to);
         });
     });
+    wp.customize('cta_colour_2', function (value) {
+        value.bind(function (to) {
+            $('#cta-box-2').css({
+                'background-color': to
+            })
+        });
+    });
     wp.customize('cta_image_2', function (value) {
         value.bind(function (to) {
             $('#cta-box-2').css({
@@ -100,6 +114,13 @@
     wp.customize('cta_url_3', function (value) {
         value.bind(function (to) {
             $('#cta-box-3 a').attr('href', to);
+        });
+    });
+    wp.customize('cta_colour_3', function (value) {
+        value.bind(function (to) {
+            $('#cta-box-3').css({
+                'background-color': to
+            })
         });
     });
     wp.customize('cta_image_3', function (value) {

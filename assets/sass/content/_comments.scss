@@ -1,5 +1,5 @@
 #comments {
-    border-top: 4px double $color-tertiary;
+    border-top: 1px solid $color-tertiary;
     margin-top: 1.5em;
     padding-top: 1.5em;
 }
@@ -40,20 +40,6 @@
     }
 
     @media (min-width: 768px) {
-        /*li {
-            position: relative;
-
-            &:before {
-                background: $color-tertiary;
-                content: counters(section,'.') ' ';
-                counter-increment: section;
-                display: inline-block;
-                float: left;
-                margin: 1em 1em 0 0;
-                padding: 5px 15px;
-            }
-        }*/
-
         .depth-2,
         .depth-3,
         .depth-4 {
@@ -72,7 +58,7 @@
 }
 
 .comment-body {
-    border-top: 4px double $color-tertiary;
+    border-top: 1px solid $color-tertiary;
     margin: 1em 0;
     padding: 1em 0 0;
 }
