@@ -11,6 +11,10 @@
 if ( ! is_active_sidebar( 'sidebar' ) && ! is_customize_preview() ) {
 	return;
 }
+
+if ( is_singular( 'book' ) && ! get_theme_mod( 'show_sidebar_single_book' ) ) {
+	return;
+}
 ?>
 
 <button class="sidebar-toggle" aria-controls="sidebar" aria-expanded="false"><?php esc_html_e( 'Show Sidebar', 'wordy' ); ?></button>

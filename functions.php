@@ -46,7 +46,7 @@ if ( ! function_exists( 'wordy_setup' ) ) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
-		set_post_thumbnail_size( 520, 400, true ); // @todo verify
+		set_post_thumbnail_size( 200, 175, true );
 
 		/*
 		 * Register Menus
@@ -84,18 +84,13 @@ add_action( 'after_setup_theme', 'wordy_setup' );
  *
  * Priority 0 to make it available to lower priority callbacks.
  *
- * @TODO
- *
  * @global int $content_width
  *
  * @since 1.0
  * @return void
  */
 function wordy_content_width() {
-	$sidebar_enabled = get_theme_mod( 'include_sidebar', true );
-	$content_width   = $sidebar_enabled ? 690 : 750;
-
-	$GLOBALS['content_width'] = apply_filters( 'wordy/content-width', $content_width );
+	$GLOBALS['content_width'] = apply_filters( 'wordy/content-width', 700 );
 }
 
 add_action( 'after_setup_theme', 'wordy_content_width', 0 );
@@ -112,7 +107,7 @@ function wordy_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'wordy' ),
 		'id'            => 'sidebar',
-		'description'   => esc_html__( 'Sidebar on the left-hand side of blog pages.', 'wordy' ),
+		'description'   => esc_html__( 'Sidebar on the left-hand side.', 'wordy' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h3 class="widget-title"><span>',

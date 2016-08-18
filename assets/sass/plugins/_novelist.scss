@@ -59,6 +59,7 @@
 
             &:before, &:after {
                 @include clearfix;
+                clear: both;
             }
         }
 
@@ -68,11 +69,11 @@
         }
 
         .book-content-wrap {
-            margin-left: 320px;
+            margin-left: 340px;
         }
 
         .pagination {
-            margin-left: 320px;
+            margin-left: 340px;
         }
     }
 }

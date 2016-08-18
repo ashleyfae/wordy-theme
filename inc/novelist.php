@@ -24,6 +24,25 @@ if ( ! class_exists( 'Novelist' ) ) {
  */
 function wordy_novelist_customizer_static_front_page( $wp_customize ) {
 
+	/* Book Section */
+	$wp_customize->add_section( 'novelist_books', array(
+		'title'    => esc_html__( 'Book Pages', 'wordy' ),
+		'priority' => 113
+	) );
+
+	/* Show Sidebar on Book */
+	$wp_customize->add_setting( 'show_sidebar_single_book', array(
+		'default'           => false,
+		'sanitize_callback' => 'wordy_sanitize_checkbox'
+	) );
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'show_sidebar_single_book', array(
+		'label'    => esc_html__( 'Show sidebar on single book pages', 'wordy' ),
+		'type'     => 'checkbox',
+		'section'  => 'novelist_books',
+		'settings' => 'show_sidebar_single_book',
+		'priority' => 10
+	) ) );
+
 	/* Featured Book */
 	$wp_customize->add_setting( 'homepage_featured_book', array(
 		'default'           => novelist_get_latest_book_id(),

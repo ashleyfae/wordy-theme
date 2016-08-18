@@ -21,7 +21,7 @@ $synopsis = $book->get_synopsis();
 		/**
 		 * Display the post thumbnail.
 		 */
-		echo '<a href="' . esc_url( get_permalink() ) . '">' . $book->get_cover_image( 'medium', 'aligncenter' ) . '</a>';
+		echo '<a href="' . esc_url( get_permalink() ) . '">' . $book->get_cover_image( 'large', 'aligncenter' ) . '</a>';
 
 		do_action( 'wordy/book/after-book-thumbnail', get_post() )
 		?>

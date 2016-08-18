@@ -23,6 +23,10 @@ function wordy_body_classes( $classes ) {
 		return $classes;
 	}
 
+	if ( is_singular( 'book' ) && ! get_theme_mod( 'show_sidebar_single_book' ) ) {
+		return $classes;
+	}
+
 	if ( is_singular() || is_home() || is_archive() ) {
 		$classes[] = 'has-sidebar';
 	}
@@ -452,6 +456,18 @@ function wordy_get_default_cta_values( $number = 1 ) {
 		'text' => $text,
 		'url'  => $url
 	);
+}
+
+/**
+ * Sanitize Checkbox
+ *
+ * @param $input
+ *
+ * @since  1.0
+ * @return bool
+ */
+function wordy_sanitize_checkbox( $input ) {
+	return ( $input === true ) ? true : false;
 }
 
 /**
