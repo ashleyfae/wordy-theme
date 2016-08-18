@@ -79,6 +79,21 @@
         display: block;
     }
 
+    .widget {
+        background: #f4f4f4;
+        padding: 1em;
+
+        input[type="email"],
+        input[type="password"],
+        input[type="search"],
+        input[type="url"],
+        input[type="text"],
+        select,
+        textarea {
+            background: white;
+        }
+    }
+
     @media (min-width: 768px) {
         display: block;
     }

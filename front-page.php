@@ -26,7 +26,7 @@ endwhile;
 /**
  * Display the featured book.
  */
-if ( function_exists( 'wordy_featured_book' ) ) {
+if ( function_exists( 'novelist_get_latest_book_id' ) ) {
 	?>
 	<section id="featured-book">
 		<?php wordy_featured_book(); ?>

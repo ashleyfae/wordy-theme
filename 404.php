@@ -15,10 +15,6 @@ $widget_args = $archive_widget_args = array(
 
 get_header(); ?>
 
-
-	// Include header.php.
-	get_header(); ?>
-
 	<main id="main" class="site-main" role="main">
 
 		<section class="error-404 not-found">

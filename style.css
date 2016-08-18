@@ -946,6 +946,19 @@ article.page .entry-header {
 #sidebar.toggled {
   display: block;
 }
+#sidebar .widget {
+  background: #f4f4f4;
+  padding: 1em;
+}
+#sidebar .widget input[type="email"],
+#sidebar .widget input[type="password"],
+#sidebar .widget input[type="search"],
+#sidebar .widget input[type="url"],
+#sidebar .widget input[type="text"],
+#sidebar .widget select,
+#sidebar .widget textarea {
+  background: white;
+}
 @media (min-width: 768px) {
   #sidebar {
     display: block;
