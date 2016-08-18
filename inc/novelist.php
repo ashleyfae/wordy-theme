@@ -44,20 +44,22 @@ function wordy_novelist_customizer_static_front_page( $wp_customize ) {
 	) ) );
 
 	/* Featured Book */
-	$wp_customize->add_setting( 'homepage_featured_book', array(
-		'default'           => novelist_get_latest_book_id(),
-		'sanitize_callback' => 'absint',
-		'transport'         => $wp_customize->selective_refresh ? 'postMessage' : 'refresh'
-	) );
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'homepage_featured_book', array(
-		'label'       => esc_html__( 'Featured Book', 'wordy' ),
-		'description' => esc_html__( 'Choose a book to feature on your homepage.', 'wordy' ),
-		'type'        => 'select',
-		'choices'     => novelist_get_books(),
-		'section'     => 'static_front_page',
-		'settings'    => 'homepage_featured_book',
-		'priority'    => 50
-	) ) );
+	if ( function_exists( 'novelist_get_latest_book_id' ) ) {
+		$wp_customize->add_setting( 'homepage_featured_book', array(
+			'default'           => novelist_get_latest_book_id(),
+			'sanitize_callback' => 'absint',
+			'transport'         => $wp_customize->selective_refresh ? 'postMessage' : 'refresh'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'homepage_featured_book', array(
+			'label'       => esc_html__( 'Featured Book', 'wordy' ),
+			'description' => esc_html__( 'Choose a book to feature on your homepage.', 'wordy' ),
+			'type'        => 'select',
+			'choices'     => novelist_get_books(),
+			'section'     => 'static_front_page',
+			'settings'    => 'homepage_featured_book',
+			'priority'    => 50
+		) ) );
+	}
 
 }
 

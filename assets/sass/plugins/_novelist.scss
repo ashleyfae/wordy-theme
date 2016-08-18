@@ -77,3 +77,25 @@
         }
     }
 }
+
+/* Book Grid */
+.novelist-book-list {
+    .novelist-book-title {
+        @include font-size(1.8);
+        margin: 0 0 15px;
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+    }
+
+    .novelist-button {
+        display: block;
+        width: 100%;
+
+        &:hover {
+            color: white;
+        }
+    }
+}

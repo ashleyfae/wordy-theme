@@ -2,7 +2,7 @@
  * Theme Name: Wordy
  * Theme URI: https://novelistplugin.com/download/wordy-theme/
  * Description: For wordsmiths.
- * Version: 0.9
+ * Version: 0.9.1
  * Author: Novelist
  * Author URI: https://novelistplugin.com
  * License: GPL2
@@ -26,8 +26,9 @@
 4 Elements
     4.1 Buttons
     4.2 Forms
-    4.3 Lists
-    4.4 Tables
+    4.3 Horizontal Rule
+    4.4 Lists
+    4.5 Tables
 5 Navigation
 	5.1 Links
 	5.2 Menus
@@ -341,10 +342,19 @@ textarea:focus {
 }
 
 /*--------------------------------------------------------------
-4.3 Lists
+4.3 Horizontal Rule
+--------------------------------------------------------------*/
+hr {
+  border: none;
+  border-top: 2px solid #f4f4f4;
+  margin: 4em 0;
+}
+
+/*--------------------------------------------------------------
+4.4 Lists
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-4.4 Tables
+4.5 Tables
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 5 Navigation
@@ -1371,4 +1381,22 @@ img {
   #book-feed .pagination {
     margin-left: 340px;
   }
+}
+
+/* Book Grid */
+.novelist-book-list .novelist-book-title {
+  font-size: 28.8px;
+  font-size: 1.8rem;
+  margin: 0 0 15px;
+}
+.novelist-book-list .novelist-book-title a {
+  color: #333;
+  text-decoration: none;
+}
+.novelist-book-list .novelist-button {
+  display: block;
+  width: 100%;
+}
+.novelist-book-list .novelist-button:hover {
+  color: white;
 }

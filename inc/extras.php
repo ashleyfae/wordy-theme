@@ -332,7 +332,7 @@ function wordy_get_social_links() {
  * @return string New menu with social media links appended.
  */
 function wordy_append_social_media_navigation( $items, $args ) {
-	return $items . '<li id="social-links">' . wordy_get_social_links();
+	return $items . '<li id="social-links">' . wordy_get_social_links() . '</li>';
 }
 
 add_filter( 'wp_nav_menu_items', 'wordy_append_social_media_navigation', 10, 2 );
