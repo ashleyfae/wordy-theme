@@ -56,7 +56,15 @@
     // CTA box #1
     wp.customize('cta_text_1', function (value) {
         value.bind(function (to) {
-            $('#cta-box-1 a').text(to);
+            var box = $('#cta-box-1');
+
+            box.find('a').text(to);
+
+            if (to) {
+                box.show();
+            } else {
+                box.hide();
+            }
         });
     });
     wp.customize('cta_url_1', function (value) {
@@ -82,7 +90,15 @@
     // CTA box #2
     wp.customize('cta_text_2', function (value) {
         value.bind(function (to) {
-            $('#cta-box-2 a').text(to);
+            var box = $('#cta-box-2');
+
+            box.find('a').text(to);
+
+            if (to) {
+                box.show();
+            } else {
+                box.hide();
+            }
         });
     });
     wp.customize('cta_url_2', function (value) {
@@ -105,10 +121,18 @@
         });
     });
 
-    // CTA box #1
+    // CTA box #3
     wp.customize('cta_text_3', function (value) {
         value.bind(function (to) {
-            $('#cta-box-3 a').text(to);
+            var box = $('#cta-box-3');
+
+            box.find('a').text(to);
+
+            if (to) {
+                box.show();
+            } else {
+                box.hide();
+            }
         });
     });
     wp.customize('cta_url_3', function (value) {
