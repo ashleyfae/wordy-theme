@@ -45,8 +45,11 @@ function wordy_novelist_customizer_static_front_page( $wp_customize ) {
 
 	/* Featured Book */
 	if ( function_exists( 'novelist_get_latest_book_id' ) ) {
+		$latest_book = novelist_get_latest_book_id();
+		$books       = novelist_get_books();
+		$books_array = array( 0 => esc_html__( 'None', 'wordy' ) ) + $books;
 		$wp_customize->add_setting( 'homepage_featured_book', array(
-			'default'           => novelist_get_latest_book_id(),
+			'default'           => $latest_book ? $latest_book : 0,
 			'sanitize_callback' => 'absint',
 			'transport'         => $wp_customize->selective_refresh ? 'postMessage' : 'refresh'
 		) );
@@ -54,7 +57,7 @@ function wordy_novelist_customizer_static_front_page( $wp_customize ) {
 			'label'       => esc_html__( 'Featured Book', 'wordy' ),
 			'description' => esc_html__( 'Choose a book to feature on your homepage.', 'wordy' ),
 			'type'        => 'select',
-			'choices'     => novelist_get_books(),
+			'choices'     => $books_array,
 			'section'     => 'static_front_page',
 			'settings'    => 'homepage_featured_book',
 			'priority'    => 50
