@@ -334,7 +334,7 @@ class Wordy_Customizer {
 
 			// URL
 			$wp_customize->add_setting( 'cta_url_' . $number, array(
-				'default'           => $defaults['url'],
+				'default'           => $defaults['url'] ? $defaults['url'] : '',
 				'sanitize_callback' => 'esc_url_raw',
 				'transport'         => 'postMessage'
 			) );
