@@ -1,22 +1,21 @@
-@import "susy";
-
-$susy: (
-        columns: 12,
-        container: 1100px,
-        global-box-sizing: border-box,
-        gutters: 1 // was 10
-);
-
-@include border-box-sizing();
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
 @media (min-width: 768px) {
     .has-sidebar {
         #main {
-            @include span(8 of 12);
+            width: 65.21739%;
+            float: left;
+            margin-right: 4.34783%;
         }
 
         #sidebar {
-            @include span(4 of 12 last);
+            width: 30.43478%;
+            float: right;
+            margin-right: 0;
         }
     }
 

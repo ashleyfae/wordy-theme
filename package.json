@@ -1,0 +1,25 @@
+{
+  "name": "wordy",
+  "description": "For wordsmiths.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashleyfae/wordy-theme.git"
+  },
+  "author": "Nose Graze Limited",
+  "license": "GPL-2.0-or-later",
+  "bugs": {
+    "url": "https://github.com/ashleyfae/wordy-theme/issues"
+  },
+  "devDependencies": {
+    "laravel-mix": "^6.0.11",
+    "postcss": "^8.2.4",
+    "resolve-url-loader": "^3.1.2",
+    "sass": "^1.32.5",
+    "sass-loader": "^8.0.2"
+  },
+  "scripts": {
+    "build": "npx mix --production && npm run i18n",
+    "dev": "npx mix watch",
+    "i18n": "wp i18n make-pot . languages/wordy.pot --domain=wordy"
+  }
+}

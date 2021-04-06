@@ -1,0 +1,384 @@
+# Copyright (C) 2021 Novelist
+# This file is distributed under the GPL2.
+msgid ""
+msgstr ""
+"Project-Id-Version: Wordy 0.9.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wordy-theme\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-04-06T13:31:36+01:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: wordy\n"
+
+#. Theme Name of the theme
+msgid "Wordy"
+msgstr ""
+
+#. Theme URI of the theme
+msgid "https://novelistplugin.com/download/wordy-theme/"
+msgstr ""
+
+#. Description of the theme
+msgid "For wordsmiths."
+msgstr ""
+
+#. Author of the theme
+msgid "Novelist"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://novelistplugin.com"
+msgstr ""
+
+#: 404.php:22
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:26
+msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+msgstr ""
+
+#: 404.php:30
+msgid "Search"
+msgstr ""
+
+#: 404.php:36
+msgid "Most Used Categories"
+msgstr ""
+
+#. translators: %1$s: smiley
+#: 404.php:52
+msgid "Try looking in the monthly archives. %1$s"
+msgstr ""
+
+#: archive-book.php:25
+#: taxonomy.php:40
+msgid "Books"
+msgstr ""
+
+#: comments.php:34
+msgctxt "comments title"
+msgid "One comment"
+msgid_plural "%1$s comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:41
+#: comments.php:63
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:43
+#: comments.php:65
+msgid "Older Comments"
+msgstr ""
+
+#: comments.php:44
+#: comments.php:66
+msgid "Newer Comments"
+msgstr ""
+
+#: footer.php:43
+msgid "%s %s by Novelist."
+msgstr ""
+
+#: functions.php:55
+msgid "Main Menu"
+msgstr ""
+
+#: functions.php:108
+msgid "Sidebar"
+msgstr ""
+
+#: functions.php:110
+msgid "Sidebar on the left-hand side."
+msgstr ""
+
+#: functions.php:118
+#: inc/customizer/class-wordy-customizer.php:95
+msgid "Footer"
+msgstr ""
+
+#: functions.php:120
+msgid "Footer widgets."
+msgstr ""
+
+#: header.php:26
+msgid "Skip to content"
+msgstr ""
+
+#: header.php:53
+msgid "Menu"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:82
+msgid "Typography"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:88
+msgid "Social Media"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:89
+msgid "If you fill out your social media profiles, icons will be added to the right of your navigation menu."
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:116
+msgid "Background"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:186
+msgid "Primary Colour"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:187
+msgid "Header, footer, and button background colour."
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:199
+msgid "Secondary Colour"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:200
+msgid "Link colour."
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:226
+msgid "Text Style"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:229
+msgid "Sans Serif"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:230
+msgid "Serif"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:231
+msgid "Slab Serif"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:258
+msgid "Icon Type"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:261
+msgid "regular"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:262
+msgid "Square"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:269
+msgid "%s Profile URL"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:269
+msgid "Email Address or Contact Page URL"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:305
+msgid "Call to Action Boxes"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:306
+#: inc/customizer/class-wordy-customizer.php:326
+msgid "Text to appear inside the box."
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:325
+msgid "Box #%s Text"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:342
+msgid "Box #%s URL"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:343
+msgid "URL for the box to link to."
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:359
+msgid "Box #%s BG Colour"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:360
+msgid "Background colour for this box."
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:375
+msgid "Box #%s BG Image"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:376
+msgid "This image will appear in the background."
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:405
+msgid "Footer Widget Columns"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:406
+msgid "The number of footer widgets to appear on each row (1-5)."
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:420
+msgid "Affiliate ID"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:421
+msgid "Enter your Nose Graze affiliate ID number to add it to the theme URL in the footer."
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:435
+msgid "Footer Text"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:436
+msgid "Any text you enter in here will appear directly before the copyright line (see below) in the footer."
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:446
+#: inc/template-tags.php:77
+msgid "Copyright %s %s. &hearts; All Rights Reserved."
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:451
+msgid "Copyright Message"
+msgstr ""
+
+#: inc/customizer/class-wordy-customizer.php:452
+msgid "Customize the copyright message. A link to the theme will be inserted after this."
+msgstr ""
+
+#: inc/extras.php:242
+msgid "Twitter"
+msgstr ""
+
+#: inc/extras.php:247
+msgid "Facebook"
+msgstr ""
+
+#: inc/extras.php:252
+msgid "Instagram"
+msgstr ""
+
+#: inc/extras.php:257
+msgid "Pinterest"
+msgstr ""
+
+#: inc/extras.php:262
+msgid "Google+"
+msgstr ""
+
+#: inc/extras.php:267
+msgid "YouTube"
+msgstr ""
+
+#: inc/extras.php:272
+msgid "LinkedIn"
+msgstr ""
+
+#: inc/extras.php:277
+msgid "Spotify"
+msgstr ""
+
+#: inc/extras.php:282
+msgid "RSS"
+msgstr ""
+
+#: inc/extras.php:287
+msgid "Email"
+msgstr ""
+
+#: inc/extras.php:440
+msgid "YA Books"
+msgstr ""
+
+#: inc/extras.php:445
+msgid "Adult Books"
+msgstr ""
+
+#: inc/extras.php:450
+msgid "Blog"
+msgstr ""
+
+#: inc/novelist.php:29
+msgid "Book Pages"
+msgstr ""
+
+#: inc/novelist.php:39
+msgid "Show sidebar on single book pages"
+msgstr ""
+
+#: inc/novelist.php:50
+msgid "None"
+msgstr ""
+
+#: inc/novelist.php:57
+msgid "Featured Book"
+msgstr ""
+
+#: inc/novelist.php:58
+msgid "Choose a book to feature on your homepage."
+msgstr ""
+
+#: inc/novelist.php:92
+msgid "More Details &raquo;"
+msgstr ""
+
+#: inc/novelist.php:136
+msgid "Goodreads"
+msgstr ""
+
+#: inc/template-tags.php:102
+msgid "Wordy Theme"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Full Width Page"
+msgstr ""
+
+#: sidebar.php:20
+msgid "Show Sidebar"
+msgstr ""
+
+#: sidebar.php:28
+msgid "Add some widgets to the 'Sidebar' widget area."
+msgstr ""
+
+#: template-parts/book.php:63
+msgid "More Info &raquo;"
+msgstr ""
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content-none.php:20
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content-none.php:24
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: template-parts/content-none.php:29
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: template-parts/content-page.php:30
+#: template-parts/content-single.php:52
+#: template-parts/content.php:56
+msgid "Pages:"
+msgstr ""
+
+#: template-parts/content-page.php:45
+msgid "Edit %s"
+msgstr ""
