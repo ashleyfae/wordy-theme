@@ -133,7 +133,7 @@ function wordy_novelist_purchase_links( $book, $include_goodreads = true ) {
 	<ul class="wordy-novelist-purchase-links">
 		<?php if ( $include_goodreads && $goodreads ) : ?>
 			<li class="wordy-novelist-goodreads">
-				<a href="<?php echo esc_url( $goodreads ); ?>" target="_blank" class="button button-block"><?php _e( 'Goodreads', 'wordy' ); ?></a>
+				<a href="<?php echo esc_url( $goodreads ); ?>" target="_blank" class="button button-block"><?php esc_html_e( 'Goodreads', 'wordy' ); ?></a>
 			</li>
 		<?php endif; ?>
 
@@ -146,7 +146,7 @@ function wordy_novelist_purchase_links( $book, $include_goodreads = true ) {
 			}
 			?>
 			<li>
-				<a href="<?php echo esc_url( $url ); ?>" target="_blank" class="button button-block"><?php echo $link_info['name']; ?></a>
+				<a href="<?php echo esc_url( $url ); ?>" target="_blank" class="button button-block"><?php echo esc_html( $link_info['name'] ); ?></a>
 			</li>
 		<?php endforeach; ?>
 	</ul>
@@ -161,7 +161,7 @@ function wordy_novelist_purchase_links( $book, $include_goodreads = true ) {
  * @param int    $book_id ID of the book being displayed.
  *
  * @since 1.0
- * @return array
+ * @return string|array
  */
 function wordy_novelist_3d_cover_size( $size, $book_id ) {
 	if ( ! is_front_page() ) {

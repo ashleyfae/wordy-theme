@@ -10,6 +10,14 @@
  * @since     1.0
  */
 
+/**
+ * Adds the "has-sidebar" class to pages that have them.
+ *
+ * @param array $classes
+ *
+ * @since 1.0
+ * @return array
+ */
 function wordy_body_classes( $classes ) {
 	if ( is_post_type_archive( array( 'book' ) ) ) {
 		return $classes;
@@ -105,7 +113,7 @@ function wordy_custom_css() {
 			$family = "'Roboto Slab', serif";
 		}
 
-		$css .= 'body { font-family: ' . $family . '; }';
+		$css .= 'body { font-family: ' . esc_attr( $family ) . '; }';
 	}
 
 	// Primary colour.
