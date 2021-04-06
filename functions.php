@@ -163,20 +163,6 @@ function wordy_assets() {
 add_action( 'wp_enqueue_scripts', 'wordy_assets' );
 
 /**
- * Include Updater
- *
- * We use an action so child themes can disable this if necessary.
- *
- * @since 1.0
- * @return void
- */
-function wordy_theme_updater() {
-	require get_template_directory() . '/inc/updater/theme-updater.php';
-}
-
-add_action( 'after_setup_theme', 'wordy_theme_updater' );
-
-/**
  * Aqua Resizer script.
  */
 require get_template_directory() . '/inc/aq_resizer.php';
