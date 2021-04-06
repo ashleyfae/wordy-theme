@@ -5,7 +5,7 @@
  * handlers to make Theme Customizer preview reload changes asynchronously.
  *
  * @package   wordy
- * @copyright Copyright (c) 2016, Nose Graze Ltd.
+ * @copyright Copyright (c) 2021, Nose Graze Ltd.
  * @license   GPL2+
  * @since     1.0
  */
