@@ -6,7 +6,7 @@
  * and thumbnails.
  *
  * @package   wordy
- * @copyright Copyright (c) 2016, Nose Graze Ltd.
+ * @copyright Copyright (c) 2021, Nose Graze Ltd.
  * @license   GPL2+
  * @since     1.0
  */
